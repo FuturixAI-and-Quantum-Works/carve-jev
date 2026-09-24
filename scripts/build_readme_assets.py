@@ -7,6 +7,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "artifacts" / "decision1-model-comparison.json"
 OUTPUT_PATH = ROOT / "assets" / "decision1-model-comparison.svg"
+FAMILY_DATA_PATH = ROOT / "artifacts" / "carve-family-by-task.json"
+FAMILY_OUTPUT_PATH = ROOT / "assets" / "carve-family-by-task.svg"
 
 WIDTH = 1200
 LEFT = 260
@@ -34,7 +36,7 @@ def svg_text(
     )
 
 
-def main() -> None:
+def build_model_comparison() -> None:
     report = json.loads(DATA_PATH.read_text(encoding="utf-8"))
     results = report["results"]
     height = TOP + len(results) * ROW_HEIGHT + 120
@@ -164,6 +166,174 @@ def main() -> None:
         ]
     )
     OUTPUT_PATH.write_text("\n".join(parts) + "\n", encoding="utf-8")
+
+
+def build_family_by_task() -> None:
+    report = json.loads(FAMILY_DATA_PATH.read_text(encoding="utf-8"))
+    tasks = report["tasks"]
+    variants = report["variants"]
+    width = 1200
+    left = 300
+    right = 1110
+    top = 190
+    row_height = 52
+    height = top + len(tasks) * row_height + 145
+    chart_width = right - left
+    colors = {
+        "zs": "#60a5fa",
+        "as": "#14b8a6",
+        "fs1": "#818cf8",
+        "fs2": "#22d3ee",
+    }
+    offsets = {"zs": -9, "as": -3, "fs1": 3, "fs2": 9}
+
+    parts = [
+        (
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" '
+            f'height="{height}" viewBox="0 0 {width} {height}" '
+            'role="img" aria-labelledby="title desc">'
+        ),
+        '<title id="title">CARVE family accuracy by task</title>',
+        (
+            '<desc id="desc">Per-task accuracy for CARVE zero-shot, adaptive, '
+            "one-shot, and two-shot profiles.</desc>"
+        ),
+        f'<rect width="{width}" height="{height}" rx="28" fill="#0b1220"/>',
+        svg_text(
+            60,
+            58,
+            "Where CARVE gains from demonstrations—and where it does not",
+            size=30,
+            color="#f8fafc",
+            weight=750,
+        ),
+        svg_text(
+            60,
+            94,
+            "Per-task accuracy across the open-source Jev-like CARVE model family",
+            size=18,
+            color="#94a3b8",
+        ),
+    ]
+
+    legend_x = 62
+    for variant in variants:
+        variant_id = str(variant["id"])
+        parts.extend(
+            [
+                (f'<circle cx="{legend_x}" cy="134" r="7" fill="{colors[variant_id]}"/>'),
+                svg_text(
+                    legend_x + 16,
+                    140,
+                    str(variant["name"]),
+                    size=15,
+                    color="#cbd5e1",
+                ),
+            ]
+        )
+        legend_x += 155
+
+    for tick in range(0, 101, 25):
+        x = left + chart_width * tick / 100
+        parts.extend(
+            [
+                (
+                    f'<line x1="{x}" y1="{top - 12}" x2="{x}" '
+                    f'y2="{top + len(tasks) * row_height - 15}" '
+                    'stroke="#1e293b" stroke-width="1"/>'
+                ),
+                svg_text(
+                    x,
+                    top - 25,
+                    f"{tick}%",
+                    size=13,
+                    color="#64748b",
+                    anchor="middle",
+                ),
+            ]
+        )
+
+    for index, task in enumerate(tasks):
+        center_y = top + index * row_height
+        values = [float(task[str(variant["id"])]) for variant in variants]
+        low_x = left + chart_width * min(values)
+        high_x = left + chart_width * max(values)
+        parts.extend(
+            [
+                svg_text(
+                    left - 20,
+                    center_y + 5,
+                    f"{task['name']} (n={task['n']})",
+                    size=15,
+                    color="#cbd5e1",
+                    weight=550,
+                    anchor="end",
+                ),
+                (
+                    f'<line x1="{low_x}" y1="{center_y}" x2="{high_x}" '
+                    f'y2="{center_y}" stroke="#334155" stroke-width="4" '
+                    'stroke-linecap="round"/>'
+                ),
+            ]
+        )
+        for variant in variants:
+            variant_id = str(variant["id"])
+            value = float(task[variant_id])
+            x = left + chart_width * value
+            parts.append(
+                f'<circle cx="{x}" cy="{center_y + offsets[variant_id]}" r="6" '
+                f'fill="{colors[variant_id]}" stroke="#0b1220" stroke-width="2"/>'
+            )
+        fs2 = float(task["fs2"])
+        parts.append(
+            svg_text(
+                min(right - 2, left + chart_width * fs2 + 13),
+                center_y + 14,
+                f"{fs2 * 100:.0f}",
+                size=12,
+                color=colors["fs2"],
+                weight=700,
+            )
+        )
+
+    footer_y = top + len(tasks) * row_height + 28
+    overall = report["overall"]
+    parts.extend(
+        [
+            f'<line x1="60" y1="{footer_y - 18}" x2="1140" y2="{footer_y - 18}" '
+            'stroke="#1e293b" stroke-width="1"/>',
+            svg_text(
+                60,
+                footer_y + 10,
+                (
+                    f"Overall: ZS {overall['zs'] * 100:.2f}% · "
+                    f"AS {overall['as'] * 100:.2f}% · "
+                    f"FS1 {overall['fs1'] * 100:.2f}% · "
+                    f"FS2 {overall['fs2'] * 100:.2f}%"
+                ),
+                size=15,
+                color="#cbd5e1",
+                weight=650,
+            ),
+            svg_text(
+                60,
+                footer_y + 40,
+                (
+                    "Jev aggregate reference: 87.19% published. No Jev per-task "
+                    "values were available in the cited source, so none are inferred."
+                ),
+                size=14,
+                color="#64748b",
+            ),
+            "</svg>",
+        ]
+    )
+    FAMILY_OUTPUT_PATH.write_text("\n".join(parts) + "\n", encoding="utf-8")
+
+
+def main() -> None:
+    build_model_comparison()
+    build_family_by_task()
 
 
 if __name__ == "__main__":

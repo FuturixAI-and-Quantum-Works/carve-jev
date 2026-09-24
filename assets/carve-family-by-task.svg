@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="959" viewBox="0 0 1200 959" role="img" aria-labelledby="title desc">
+<title id="title">CARVE family accuracy by task</title>
+<desc id="desc">Per-task accuracy for CARVE zero-shot, adaptive, one-shot, and two-shot profiles.</desc>
+<rect width="1200" height="959" rx="28" fill="#0b1220"/>
+<text x="60" y="58" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="30" font-weight="750" text-anchor="start">Where CARVE gains from demonstrations—and where it does not</text>
+<text x="60" y="94" fill="#94a3b8" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" text-anchor="start">Per-task accuracy across the open-source Jev-like CARVE model family</text>
+<circle cx="62" cy="134" r="7" fill="#60a5fa"/>
+<text x="78" y="140" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-ZS</text>
+<circle cx="217" cy="134" r="7" fill="#14b8a6"/>
+<text x="233" y="140" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-AS</text>
+<circle cx="372" cy="134" r="7" fill="#818cf8"/>
+<text x="388" y="140" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-FS1</text>
+<circle cx="527" cy="134" r="7" fill="#22d3ee"/>
+<text x="543" y="140" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-FS2</text>
+<line x1="300.0" y1="178" x2="300.0" y2="799" stroke="#1e293b" stroke-width="1"/>
+<text x="300.0" y="165" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">0%</text>
+<line x1="502.5" y1="178" x2="502.5" y2="799" stroke="#1e293b" stroke-width="1"/>
+<text x="502.5" y="165" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">25%</text>
+<line x1="705.0" y1="178" x2="705.0" y2="799" stroke="#1e293b" stroke-width="1"/>
+<text x="705.0" y="165" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">50%</text>
+<line x1="907.5" y1="178" x2="907.5" y2="799" stroke="#1e293b" stroke-width="1"/>
+<text x="907.5" y="165" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">75%</text>
+<line x1="1110.0" y1="178" x2="1110.0" y2="799" stroke="#1e293b" stroke-width="1"/>
+<text x="1110.0" y="165" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">100%</text>
+<text x="280" y="195" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">SciQ (n=80)</text>
+<line x1="1099.875" y1="190" x2="1110.0" y2="190" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1099.875" cy="181" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1099.875" cy="187" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1110.0" cy="193" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1110.0" cy="199" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="1108" y="204" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">100</text>
+<text x="280" y="247" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">Authorization policy (n=40)</text>
+<line x1="1110.0" y1="242" x2="1110.0" y2="242" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1110.0" cy="233" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1110.0" cy="239" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1110.0" cy="245" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1110.0" cy="251" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="1108" y="256" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">100</text>
+<text x="280" y="299" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">Deadline policy (n=40)</text>
+<line x1="1049.25" y1="294" x2="1089.75" y2="294" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1089.75" cy="285" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1089.75" cy="291" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1049.25" cy="297" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1069.5" cy="303" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="1082.5" y="308" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">95</text>
+<text x="280" y="351" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">PAWS (n=80)</text>
+<line x1="1049.25" y1="346" x2="1059.375" y2="346" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1049.25" cy="337" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1059.375" cy="343" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1059.375" cy="349" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1059.375" cy="355" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="1072.375" y="360" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">94</text>
+<text x="280" y="403" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">QNLI (n=80)</text>
+<line x1="1039.125" y1="398" x2="1049.25" y2="398" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1049.25" cy="389" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1039.125" cy="395" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1039.125" cy="401" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1039.125" cy="407" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="1052.125" y="412" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">91</text>
+<text x="280" y="455" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">Control policies (n=110)</text>
+<line x1="1036.363636371" y1="450" x2="1058.454545484" y2="450" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1043.727272742" cy="441" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1036.363636371" cy="447" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1036.363636371" cy="453" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1058.454545484" cy="459" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="1071.454545484" y="464" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">94</text>
+<text x="280" y="507" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">Composition logic (n=96)</text>
+<line x1="966.5625000269999" y1="502" x2="1025.624999973" y2="502" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="966.5625000269999" cy="493" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1017.1875000269999" cy="499" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1017.1875000269999" cy="505" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="1025.624999973" cy="511" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="1038.624999973" y="516" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">90</text>
+<text x="280" y="559" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">MMLU (n=80)</text>
+<line x1="958.125" y1="554" x2="968.25" y2="554" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="958.125" cy="545" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="968.25" cy="551" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="958.125" cy="557" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="968.25" cy="563" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="981.25" y="568" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">82</text>
+<text x="280" y="611" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">TweetEval offensive (n=80)</text>
+<line x1="927.75" y1="606" x2="948.0" y2="606" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="948.0" cy="597" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="927.75" cy="603" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="927.75" cy="609" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="948.0" cy="615" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="961.0" y="620" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">80</text>
+<text x="280" y="663" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">Buried evidence (n=80)</text>
+<line x1="786.0" y1="658" x2="887.25" y2="658" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="887.25" cy="649" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="826.5" cy="655" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="786.0" cy="661" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="826.5" cy="667" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="839.5" y="672" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">65</text>
+<text x="280" y="715" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">Emotion (n=80)</text>
+<line x1="786.0" y1="710" x2="846.75" y2="710" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="786.0" cy="701" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="846.75" cy="707" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="806.25" cy="713" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="846.75" cy="719" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="859.75" y="724" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">68</text>
+<text x="280" y="767" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="550" text-anchor="end">MMLU-Pro (n=200)</text>
+<line x1="790.05" y1="762" x2="822.45" y2="762" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+<circle cx="790.05" cy="753" r="6" fill="#60a5fa" stroke="#0b1220" stroke-width="2"/>
+<circle cx="790.05" cy="759" r="6" fill="#14b8a6" stroke="#0b1220" stroke-width="2"/>
+<circle cx="814.35" cy="765" r="6" fill="#818cf8" stroke="#0b1220" stroke-width="2"/>
+<circle cx="822.45" cy="771" r="6" fill="#22d3ee" stroke="#0b1220" stroke-width="2"/>
+<text x="835.45" y="776" fill="#22d3ee" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="start">64</text>
+<line x1="60" y1="824" x2="1140" y2="824" stroke="#1e293b" stroke-width="1"/>
+<text x="60" y="852" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" text-anchor="start">Overall: ZS 80.50% · AS 80.88% · FS1 80.50% · FS2 82.22%</text>
+<text x="60" y="882" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Jev aggregate reference: 87.19% published. No Jev per-task values were available in the cited source, so none are inferred.</text>
+</svg>

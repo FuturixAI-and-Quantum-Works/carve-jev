@@ -56,14 +56,15 @@ Machine-readable files in `artifacts/` are sanitized summaries from the source
 workspace. Datasets, generated prediction JSONL, model weights, caches, and
 virtual environments are intentionally excluded.
 
-## README comparison figure
+## README comparison figures
 
-The model-comparison figure is generated from committed JSON rather than
-hand-edited:
+The model-comparison and CARVE-family figures are generated from committed
+JSON rather than hand-edited:
 
 ```bash
 python scripts/build_readme_assets.py
 ```
 
-Its inputs, external provenance, and comparability caveat are recorded in
-`artifacts/decision1-model-comparison.json`.
+Their inputs, external provenance, and comparability caveats are recorded in
+`artifacts/decision1-model-comparison.json` and
+`artifacts/carve-family-by-task.json`.

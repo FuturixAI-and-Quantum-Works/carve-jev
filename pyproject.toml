@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "carve-decision"
 version = "0.1.0"
-description = "Open-source Jev-style decision model using one-token Qwen3.8 candidate-logit readout"
+description = "Open-source Jev-like model family using one-token Qwen3.8 candidate-logit readout"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.11"

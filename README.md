@@ -6,12 +6,13 @@
   <a href="https://github.com/rudransh2004/carve/actions/workflows/ci.yml"><img src="https://github.com/rudransh2004/carve/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB" alt="Python 3.11+" />
   <img src="https://img.shields.io/badge/license-Apache--2.0-2ea44f" alt="Apache-2.0" />
-  <img src="https://img.shields.io/badge/open--source-Jev--style-0891b2" alt="Open-source Jev-style model" />
+  <img src="https://img.shields.io/badge/open--source-Jev--like_family-0891b2" alt="Open-source Jev-like model family" />
   <img src="https://img.shields.io/badge/API-TypeSafe--compatible-7c3aed" alt="TypeSafe compatible" />
   <img src="https://img.shields.io/badge/probabilities-raw-f59e0b" alt="Raw probabilities" />
 </p>
 
 <p align="center">
+  <a href="#carve-model-family">Model family</a> ·
   <a href="#quickstart">Quickstart</a> ·
   <a href="#decision-10-comparison">Benchmarks</a> ·
   <a href="#architecture">Architecture</a> ·
@@ -20,17 +21,17 @@
   <a href="docs/reproducibility.md">Reproduce</a>
 </p>
 
-# CARVE: Open-Source Jev-Style Decision Model
+# CARVE: Open-Source Jev-Like Model Family
 
 **Candidate-Aligned Readout via Vocabulary Evidence**
 
-CARVE is an Apache-2.0, open-source Jev-style/System One decision model built
-on Qwen3.8-27B. It scores only candidate letters assigned to user-defined
-options and returns typed Noul, Choice, or Score answers through a
-TypeSafe-compatible API. It makes each decision with one output token—without
-generating free-form JSON and parsing it afterward.
+CARVE is an Apache-2.0, open-source **Jev-like model family** built on
+Qwen3.8-27B. It scores only candidate letters assigned to user-defined options
+and returns typed Noul, Choice, or Score answers through a TypeSafe-compatible
+System One API. It makes each decision with one output token—without generating
+free-form JSON and parsing it afterward.
 
-“Jev-style” describes the typed decision interface and task category. CARVE is
+“Jev-like” describes the typed decision interface and task category. CARVE is
 an independent project and is not affiliated with or endorsed by TypeSafe AI.
 
 > CARVE probabilities are **raw restricted candidate-token preferences**.
@@ -46,6 +47,30 @@ an independent project and is not affiliated with or endorsed by TypeSafe AI.
   ablations, and negative results live beside the code.
 - **Honest semantics:** every response identifies its probability level instead
   of presenting raw softmax as calibrated confidence.
+
+## CARVE model family
+
+Every CARVE profile uses the same Qwen3.8-27B backbone, one-token candidate
+readout, non-thinking mode, and TypeSafe-compatible API. The family names
+describe reproducible serving profiles—not separately trained checkpoints.
+
+Start with **CARVE-ZS** for maximum throughput, **CARVE-AS** for a balanced
+adaptive profile, or **CARVE-FS2** for the best measured accuracy.
+
+| Profile | Recipe | Transfer accuracy | Serial p50 | Loaded throughput | Best fit |
+|:--|:--|--:|--:|--:|:--|
+| **CARVE-FS2** | FP8, two-shot | **82.22%** | 72.5 ms | 23.40 req/s | Best accuracy |
+| **CARVE-AS** | FP8, adaptive 0/1/2-shot | 80.88% | 71.5 ms | 27.42 req/s | Balanced |
+| **CARVE-ZS** | FP8, zero-shot | 80.50% | **70.3 ms** | **35.87 req/s** | Throughput |
+| **CARVE-FS1** | FP8, one-shot | 80.50% | 71.6 ms | 23.67 req/s | One-example tasks |
+| CARVE-BF16-FS2 | BF16, two-shot | 81.36% | 109.0 ms | 11.14 req/s | Precision reference |
+| Jev | Hosted external reference | **87.19% published** | — | — | Proprietary API |
+
+Accuracy is from serial runs on 1,046 clean, knowable transfer-v9 decisions.
+Throughput is from separate concurrency-8 runs on one RTX PRO 6000; batching
+can move near-tie predictions. Jev speed is intentionally omitted because the
+hardware and network path were not controlled. See the
+[family data](artifacts/carve-family.json).
 
 ## Measured results
 
@@ -63,6 +88,19 @@ See the [chart data](artifacts/decision1-model-comparison.json) and
 [reproduction protocol](docs/reproducibility.md). This is an accuracy
 comparison on the same named protocol, not a controlled hardware or latency
 comparison.
+
+### Where CARVE family profiles differ
+
+<p align="center">
+  <img src="assets/carve-family-by-task.svg" alt="Per-task Decision 1.0 accuracy for CARVE zero-shot, adaptive-shot, one-shot, and two-shot profiles" width="100%" />
+</p>
+
+Two-shot prompting improves composition logic, MMLU-Pro, emotion, and control
+policies, but it does not help every source: buried-evidence accuracy is lower
+than zero-shot. That is why CARVE exposes multiple profiles rather than
+claiming one recipe dominates every task. Jev's cited result provides only an
+aggregate score, so the chart does not invent per-task Jev values. See the
+[machine-readable task data](artifacts/carve-family-by-task.json).
 
 **Decision quality**
 
@@ -88,6 +126,72 @@ comparison.
 These are local measurements, not a controlled hardware-to-hardware comparison
 with Jev. See [the model card](docs/model-card.md) and
 [benchmark methodology](docs/reproducibility.md).
+
+## Experimental program
+
+The released profile was selected through staged experiments, not from a
+single benchmark run. Development data selected each component; test data was
+used after selection. The current test result is retrospective because that
+test split was seen during earlier research.
+
+<details>
+<summary><strong>1. Prompt profiles — five instruction strategies</strong></summary>
+
+**Aim:** determine whether semantic, evidence-focused, checklist, or strict
+instructions improve the one-token readout. **Method:** evaluate all five
+profiles on the same 1,046 development decisions. **Result:** baseline 77.82%,
+evidence 76.77%, strict 74.86%, semantic 74.47%, checklist 73.23%.
+**Decision:** retain the shortest baseline prompt.
+</details>
+
+<details>
+<summary><strong>2. Few-shot count and format</strong></summary>
+
+**Aim:** measure whether demonstrations add decision accuracy. **Method:** use
+a frozen SHA-256-selected development bank and a shared 996-decision
+denominator. **Result:** zero-shot 77.11%, one-shot 78.61%, two-shot 79.92%;
+two-shot fixed 60 zero-shot errors and broke 32 correct answers
+(McNemar p=0.00461). Full chat examples beat compact and minimal serialization,
+both 78.71%. **Decision:** select two full chat demonstrations.
+</details>
+
+<details>
+<summary><strong>3. BF16 versus official FP8 weights</strong></summary>
+
+**Aim:** reduce latency without losing development accuracy. **Result:** both
+precisions reached 79.92% on development, while FP8 reduced serial p50 from
+108.8 ms to 73.6 ms. On test, FP8 measured 82.22% and BF16 81.36%.
+**Decision:** release FP8; the test difference is treated as a quantization
+boundary effect, not evidence that FP8 reasons better.
+</details>
+
+<details>
+<summary><strong>4. Prefix caching and adaptive demonstrations</strong></summary>
+
+Two-shot prompts contain 586.7 mean input tokens versus 220.5 zero-shot.
+Fine-grained prefix matching was tested and rejected: throughput fell from
+23.40 to 16.70 req/s. Adaptive-k reduced mean prompt length 40.3%, raised
+loaded throughput to 27.42 req/s, and reduced loaded p50 21.7%, but cost 1.34
+accuracy points. **Decision:** keep FS2 as the quality profile and expose
+adaptive-k as an optional balanced profile.
+</details>
+
+<details>
+<summary><strong>5. Production load, API, and multimodal path</strong></summary>
+
+A 3,072-request concurrency sweep had zero failures. Throughput saturated near
+concurrency 8; a separate 2,048-request sustained run delivered 20.23 req/s
+with 382.3 ms p50 and zero failures. The official Python SDK parsed all answer
+types in mocked contract tests. Image input passed an end-to-end smoke test,
+but no representative multimodal decision benchmark has been run.
+</details>
+
+Full AIM, methodology, result, limitation, and conclusion reports:
+[ablation](experiments/ablation.md) ·
+[accuracy/latency](experiments/accuracy-latency.md) ·
+[few-shot/adaptive-k](experiments/few-shot.md) ·
+[production](experiments/production-performance.md) ·
+[SDK compatibility](experiments/sdk-compatibility.md).
 
 ## Architecture
 

@@ -1,0 +1,35 @@
+{
+  "benchmark": "Decision 1.0 transfer-v9",
+  "scope": "1,046 clean, knowable test decisions",
+  "metric": "accuracy",
+  "variants": [
+    {"id": "zs", "name": "CARVE-ZS", "description": "FP8 zero-shot"},
+    {"id": "as", "name": "CARVE-AS", "description": "FP8 adaptive 0/1/2-shot"},
+    {"id": "fs1", "name": "CARVE-FS1", "description": "FP8 one-shot"},
+    {"id": "fs2", "name": "CARVE-FS2", "description": "FP8 two-shot"}
+  ],
+  "overall": {
+    "zs": 0.8049713193,
+    "as": 0.8087954111,
+    "fs1": 0.8049713193,
+    "fs2": 0.8221797323
+  },
+  "jev_published_aggregate_reference": 0.8719,
+  "tasks": [
+    {"name": "SciQ", "n": 80, "zs": 0.9875, "as": 0.9875, "fs1": 1.0, "fs2": 1.0},
+    {"name": "Authorization policy", "n": 40, "zs": 1.0, "as": 1.0, "fs1": 1.0, "fs2": 1.0},
+    {"name": "Deadline policy", "n": 40, "zs": 0.975, "as": 0.975, "fs1": 0.925, "fs2": 0.95},
+    {"name": "PAWS", "n": 80, "zs": 0.925, "as": 0.9375, "fs1": 0.9375, "fs2": 0.9375},
+    {"name": "QNLI", "n": 80, "zs": 0.925, "as": 0.9125, "fs1": 0.9125, "fs2": 0.9125},
+    {"name": "Control policies", "n": 110, "zs": 0.9181818182, "as": 0.9090909091, "fs1": 0.9090909091, "fs2": 0.9363636364},
+    {"name": "Composition logic", "n": 96, "zs": 0.8229166667, "as": 0.8854166667, "fs1": 0.8854166667, "fs2": 0.8958333333},
+    {"name": "MMLU", "n": 80, "zs": 0.8125, "as": 0.825, "fs1": 0.8125, "fs2": 0.825},
+    {"name": "TweetEval offensive", "n": 80, "zs": 0.8, "as": 0.775, "fs1": 0.775, "fs2": 0.8},
+    {"name": "Buried evidence", "n": 80, "zs": 0.725, "as": 0.65, "fs1": 0.6, "fs2": 0.65},
+    {"name": "Emotion", "n": 80, "zs": 0.6, "as": 0.675, "fs1": 0.625, "fs2": 0.675},
+    {"name": "MMLU-Pro", "n": 200, "zs": 0.605, "as": 0.605, "fs1": 0.635, "fs2": 0.645}
+  ],
+  "derivation": "Aggregated from retained serial per-task benchmark summaries for the frozen zero-shot, adaptive, one-shot, and two-shot runs.",
+  "raw_predictions_distributed": false,
+  "note": "Jev has an aggregate published score in the cited comparison, but no per-task values in the source used here; it is therefore not plotted as per-task data."
+}

@@ -1,0 +1,61 @@
+{
+  "family": "CARVE open-source Jev-like model family",
+  "backbone": "Qwen/Qwen3.8-27B",
+  "benchmark": "Decision 1.0 transfer-v9",
+  "accuracy_scope": "1,046 clean, knowable decisions at concurrency 1",
+  "latency_hardware": "1x NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "profiles": [
+    {
+      "name": "CARVE-ZS",
+      "precision": "FP8",
+      "shots": "0",
+      "accuracy": 0.8049713193,
+      "serial_p50_ms": 70.2849,
+      "loaded_c8_requests_per_second": 35.8739,
+      "recommended_for": "Maximum throughput"
+    },
+    {
+      "name": "CARVE-AS",
+      "precision": "FP8",
+      "shots": "Adaptive 0/1/2",
+      "accuracy": 0.8087954111,
+      "serial_p50_ms": 71.4902,
+      "loaded_c8_requests_per_second": 27.4196,
+      "recommended_for": "Balanced quality and throughput"
+    },
+    {
+      "name": "CARVE-FS1",
+      "precision": "FP8",
+      "shots": "1",
+      "accuracy": 0.8049713193,
+      "serial_p50_ms": 71.5635,
+      "loaded_c8_requests_per_second": 23.6736,
+      "recommended_for": "One-example workflows"
+    },
+    {
+      "name": "CARVE-FS2",
+      "precision": "FP8",
+      "shots": "2",
+      "accuracy": 0.8221797323,
+      "serial_p50_ms": 72.5078,
+      "loaded_c8_requests_per_second": 23.4013,
+      "recommended_for": "Best measured accuracy"
+    },
+    {
+      "name": "CARVE-BF16-FS2",
+      "precision": "BF16",
+      "shots": "2",
+      "accuracy": 0.8135755258,
+      "serial_p50_ms": 108.9936,
+      "loaded_c8_requests_per_second": 11.1428,
+      "recommended_for": "Precision reference"
+    }
+  ],
+  "comparison_reference": {
+    "name": "Jev",
+    "deployment": "Hosted API",
+    "published_accuracy": 0.8719,
+    "latency_comparable": false
+  },
+  "note": "Accuracy and throughput come from separate serial and concurrency-8 runs. Near-tie predictions can change with batch shape."
+}

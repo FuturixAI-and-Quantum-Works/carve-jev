@@ -2,7 +2,8 @@
 
 ## Model
 
-CARVE-27B is an Apache-2.0 open-source Jev-style decision readout over
+CARVE-27B belongs to the Apache-2.0 open-source Jev-like CARVE model family.
+It is a decision readout over
 `Qwen/Qwen3.8-27B-FP8`. It presents evidence, a criterion, and up to 26 options
 to the backbone with thinking disabled, requests one token, obtains candidate
 letter logits from vLLM, and applies a softmax restricted to those letters.
