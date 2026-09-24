@@ -1,0 +1,23 @@
+name: Feature request
+description: Propose a focused CARVE improvement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What CARVE use case is blocked?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evaluation plan
+      description: Describe tests, benchmark protocol, and compatibility impact.

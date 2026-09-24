@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-24",
+  "status": "passed",
+  "scope": "Engineering smoke test only; not an accuracy benchmark",
+  "backbone": "Qwen/Qwen3.8-27B-FP8",
+  "hardware": "1x NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "input": {
+    "media_type": "image_url",
+    "image": "Programmatically generated 128x128 solid-red PNG",
+    "question": "What is the dominant image color?",
+    "criteria": ["red", "green", "blue"]
+  },
+  "result": {
+    "choice": "red",
+    "probabilities": {
+      "red": 0.999815704551936,
+      "green": 0.0001584321160845436,
+      "blue": 0.000025863331979386346
+    },
+    "input_tokens": 173,
+    "output_tokens": 1
+  },
+  "interpretation": "The request path worked end to end. No multimodal accuracy claim is supported."
+}

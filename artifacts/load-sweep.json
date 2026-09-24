@@ -1,0 +1,16 @@
+{
+  "benchmark": "CARVE closed-loop production load sweep",
+  "date": "2026-09-24",
+  "hardware": "1x NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "configuration": "CARVE-FP8-FS2",
+  "requests_per_concurrency": 512,
+  "methodology": "Closed-loop HTTP clients; latency includes server queueing.",
+  "results": [
+    {"concurrency": 1, "successful": 512, "failed": 0, "requests_per_second": 13.1421, "p50_ms": 72.2085, "p95_ms": 86.2122, "p99_ms": 123.8461},
+    {"concurrency": 2, "successful": 512, "failed": 0, "requests_per_second": 14.8417, "p50_ms": 132.9380, "p95_ms": 148.1592, "p99_ms": 156.4459},
+    {"concurrency": 4, "successful": 512, "failed": 0, "requests_per_second": 19.5021, "p50_ms": 208.0284, "p95_ms": 225.7349, "p99_ms": 234.9495},
+    {"concurrency": 8, "successful": 512, "failed": 0, "requests_per_second": 21.2711, "p50_ms": 380.8590, "p95_ms": 404.1611, "p99_ms": 459.0463},
+    {"concurrency": 16, "successful": 512, "failed": 0, "requests_per_second": 21.7375, "p50_ms": 739.8553, "p95_ms": 784.0067, "p99_ms": 845.1737},
+    {"concurrency": 32, "successful": 512, "failed": 0, "requests_per_second": 22.2250, "p50_ms": 1451.3794, "p95_ms": 1529.3776, "p99_ms": 1541.0890}
+  ]
+}

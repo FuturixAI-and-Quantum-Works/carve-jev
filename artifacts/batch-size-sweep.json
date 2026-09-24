@@ -1,0 +1,15 @@
+{
+  "benchmark": "CARVE batch endpoint sweep",
+  "date": "2026-09-24",
+  "hardware": "1x NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "configuration": "CARVE-FP8-FS2",
+  "requests_per_condition": 512,
+  "results": [
+    {"batch_size": 1, "successful": 512, "failed": 0, "items_per_second": 13.3039, "batch_p50_ms": 70.9844},
+    {"batch_size": 4, "successful": 512, "failed": 0, "items_per_second": 18.5437, "batch_p50_ms": 218.9350},
+    {"batch_size": 8, "successful": 512, "failed": 0, "items_per_second": 20.2961, "batch_p50_ms": 400.5003},
+    {"batch_size": 16, "successful": 512, "failed": 0, "items_per_second": 20.9655, "batch_p50_ms": 772.4810},
+    {"batch_size": 32, "successful": 512, "failed": 0, "items_per_second": 21.4989, "batch_p50_ms": 1506.4429}
+  ],
+  "interpretation": "Batching reduces HTTP calls but did not outperform eight concurrent individual clients."
+}

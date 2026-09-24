@@ -1,0 +1,18 @@
+{
+  "benchmark": "CARVE sustained closed-loop production load",
+  "date": "2026-09-24",
+  "hardware": "1x NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "configuration": "CARVE-FP8-FS2",
+  "concurrency": 8,
+  "requested": 2048,
+  "successful": 2048,
+  "failed": 0,
+  "wall_seconds": 101.219591269,
+  "throughput_requests_per_second": 20.2332372056,
+  "latency_ms": {
+    "p50": 382.2814868763,
+    "p95": 554.3846988585,
+    "p99": 634.7197198775,
+    "maximum": 741.4439651184
+  }
+}

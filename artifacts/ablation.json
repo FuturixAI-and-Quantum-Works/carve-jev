@@ -1,0 +1,32 @@
+{
+  "study": "CARVE staged component ablation",
+  "selection_split": "Decision 1.0 transfer-v9 development",
+  "prompt_profiles": {
+    "baseline": {"correct": 814, "n": 1046, "accuracy": 0.7782026769},
+    "evidence": {"correct": 803, "n": 1046, "accuracy": 0.7676864245},
+    "strict": {"correct": 783, "n": 1046, "accuracy": 0.7485659656},
+    "semantic": {"correct": 779, "n": 1046, "accuracy": 0.7447418738},
+    "checklist": {"correct": 766, "n": 1046, "accuracy": 0.7323135755}
+  },
+  "few_shot_count": {
+    "0": {"correct": 768, "n": 996, "accuracy": 0.7710843373, "p50_ms": 66.6157},
+    "1": {"correct": 783, "n": 996, "accuracy": 0.7861445783, "p50_ms": 79.0455},
+    "2": {"correct": 796, "n": 996, "accuracy": 0.7991967871, "p50_ms": 108.8012}
+  },
+  "demonstration_serialization": {
+    "chat": {"correct": 796, "n": 996, "accuracy": 0.7991967871},
+    "compact": {"correct": 784, "n": 996, "accuracy": 0.7871485944},
+    "minimal": {"correct": 784, "n": 996, "accuracy": 0.7871485944}
+  },
+  "weight_precision": {
+    "bf16_fs2": {"accuracy": 0.7991967871, "serial_p50_ms": 108.8012},
+    "fp8_fs2": {"accuracy": 0.7991967871, "serial_p50_ms": 73.5521}
+  },
+  "selected": {
+    "prompt_profile": "baseline",
+    "few_shot_k": 2,
+    "demonstration_format": "chat",
+    "precision": "FP8",
+    "max_num_batched_tokens": 8192
+  }
+}

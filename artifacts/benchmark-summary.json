@@ -1,0 +1,32 @@
+{
+  "benchmark": "Decision 1.0 transfer-v9 clean test decisions",
+  "scored_decisions": 1046,
+  "correct": 860,
+  "accuracy": 0.8221797323135756,
+  "failed_records": 0,
+  "configuration": {
+    "name": "CARVE-FP8-FS2",
+    "checkpoint": "Qwen/Qwen3.8-27B-FP8",
+    "checkpoint_revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "prompt_profile": "baseline",
+    "few_shot_k": 2,
+    "few_shot_seed": 20260924,
+    "demonstration_format": "chat",
+    "thinking": false,
+    "output_tokens": 1
+  },
+  "suite_sha256": "048abea5e12c73c3a622ce5836898c00fa43766e0bf48fb2459e77ee9873497f",
+  "hardware": "1x NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "warm_serial": {
+    "latency_p50_ms": 72.50780984759331,
+    "latency_p95_ms": 90.99951013922691,
+    "throughput_requests_per_second": 13.351134526265673
+  },
+  "comparison": {
+    "jev_published_accuracy": 0.8719,
+    "source": "https://huggingface.co/llm-semantic-router/Decision-1.0-Lux-9B/blob/main/EVALUATION.md",
+    "caveat": "CARVE remains below Jev. Local speed results are not a controlled systems comparison."
+  },
+  "probability_level": "raw",
+  "probability_semantics": "Restricted candidate-token softmax; not a calibrated probability of correctness."
+}

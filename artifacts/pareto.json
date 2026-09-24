@@ -1,0 +1,21 @@
+{
+  "benchmark": "Decision 1.0 transfer-v9 clean test decisions",
+  "scored_decisions": 1046,
+  "hardware": "1x NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "serial": [
+    {"name": "CARVE-BF16-ZS", "accuracy": 0.8011472275, "p50_ms": 67.5263},
+    {"name": "CARVE-FP8-ZS", "accuracy": 0.8049713193, "p50_ms": 70.2849},
+    {"name": "CARVE-FP8-FS1", "accuracy": 0.8049713193, "p50_ms": 71.5635},
+    {"name": "CARVE-FP8-FS2", "accuracy": 0.8221797323, "p50_ms": 72.5078},
+    {"name": "CARVE-BF16-FS2", "accuracy": 0.8135755258, "p50_ms": 108.9936}
+  ],
+  "serial_frontier": ["CARVE-BF16-ZS", "CARVE-FP8-ZS", "CARVE-FP8-FS2"],
+  "loaded_concurrency_8": [
+    {"name": "CARVE-BF16-ZS", "accuracy": 0.8001912046, "requests_per_second": 27.0121},
+    {"name": "CARVE-FP8-ZS", "accuracy": 0.7982791587, "requests_per_second": 35.8739},
+    {"name": "CARVE-FP8-FS1", "accuracy": 0.8021032505, "requests_per_second": 23.6736},
+    {"name": "CARVE-FP8-FS2", "accuracy": 0.8193116635, "requests_per_second": 23.4013},
+    {"name": "CARVE-BF16-FS2", "accuracy": 0.8164435946, "requests_per_second": 11.1428}
+  ],
+  "comparability_note": "The historical BF16 zero-shot loaded run used 1264 requests while accuracy used 1046 clean decisions; other loaded points used 1046 requests."
+}
