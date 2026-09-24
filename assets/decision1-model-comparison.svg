@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1010" viewBox="0 0 1200 1010" role="img" aria-labelledby="title desc">
+<title id="title">Decision 1.0 transfer-v9 model accuracy</title>
+<desc id="desc">Accuracy comparison across CARVE, Jev, Kev, Lux, Qwen, Nox, Decider, Sol, Laya, Eos, and Kai.</desc>
+<rect width="1200" height="1010" rx="28" fill="#0b1220"/>
+<text x="60" y="62" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="750" text-anchor="start">Decision 1.0 transfer-v9</text>
+<text x="60" y="98" fill="#94a3b8" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" text-anchor="start">Accuracy on 1,046 clean, knowable test decisions</text>
+<circle cx="62" cy="132" r="7" fill="#22d3ee"/>
+<text x="78" y="138" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE measured</text>
+<circle cx="238" cy="132" r="7" fill="#818cf8"/>
+<text x="254" y="138" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">Jev published</text>
+<circle cx="392" cy="132" r="7" fill="#475569"/>
+<text x="408" y="138" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">Other published</text>
+<line x1="260.0" y1="158" x2="260.0" y2="878" stroke="#1e293b" stroke-width="1"/>
+<text x="260.0" y="146" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">0%</text>
+<line x1="465.0" y1="158" x2="465.0" y2="878" stroke="#1e293b" stroke-width="1"/>
+<text x="465.0" y="146" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">25%</text>
+<line x1="670.0" y1="158" x2="670.0" y2="878" stroke="#1e293b" stroke-width="1"/>
+<text x="670.0" y="146" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">50%</text>
+<line x1="875.0" y1="158" x2="875.0" y2="878" stroke="#1e293b" stroke-width="1"/>
+<text x="875.0" y="146" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">75%</text>
+<line x1="1080.0" y1="158" x2="1080.0" y2="878" stroke="#1e293b" stroke-width="1"/>
+<text x="1080.0" y="146" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="middle">100%</text>
+<text x="242" y="188" fill="#e0e7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="end">Jev</text>
+<rect x="260" y="170" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="170" width="715.0" height="25" rx="6" fill="#818cf8"/>
+<text x="986.958" y="188" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">87.19%</text>
+<text x="242" y="233" fill="#cffafe" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="end">CARVE-FP8-FS2</text>
+<rect x="260" y="215" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="215" width="674.2" height="25" rx="6" fill="#22d3ee"/>
+<text x="946.1873804859999" y="233" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">82.22%</text>
+<text x="242" y="278" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Kev-9B</text>
+<rect x="260" y="260" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="260" width="649.9" height="25" rx="6" fill="#475569"/>
+<text x="921.85" y="278" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">79.25%</text>
+<text x="242" y="323" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Lux-9B</text>
+<rect x="260" y="305" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="305" width="637.3" height="25" rx="6" fill="#475569"/>
+<text x="909.304" y="323" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">77.72%</text>
+<text x="242" y="368" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Kev-4B</text>
+<rect x="260" y="350" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="350" width="624.0" height="25" rx="6" fill="#475569"/>
+<text x="896.02" y="368" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">76.10%</text>
+<text x="242" y="413" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Qwen3.5-9B</text>
+<rect x="260" y="395" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="395" width="600.5" height="25" rx="6" fill="#475569"/>
+<text x="872.486" y="413" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">73.23%</text>
+<text x="242" y="458" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Nox-4B</text>
+<rect x="260" y="440" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="440" width="570.7" height="25" rx="6" fill="#475569"/>
+<text x="842.7199999999999" y="458" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">69.60%</text>
+<text x="242" y="503" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Decider</text>
+<rect x="260" y="485" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="485" width="568.3" height="25" rx="6" fill="#475569"/>
+<text x="840.342" y="503" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">69.31%</text>
+<text x="242" y="548" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Qwen3.5-4B</text>
+<rect x="260" y="530" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="530" width="564.4" height="25" rx="6" fill="#475569"/>
+<text x="836.4060000000001" y="548" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">68.83%</text>
+<text x="242" y="593" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Kev-0.8B</text>
+<rect x="260" y="575" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="575" width="501.8" height="25" rx="6" fill="#475569"/>
+<text x="773.758" y="593" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">61.19%</text>
+<text x="242" y="638" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Sol-2B</text>
+<rect x="260" y="620" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="620" width="468.0" height="25" rx="6" fill="#475569"/>
+<text x="739.9739999999999" y="638" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">57.07%</text>
+<text x="242" y="683" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Qwen3.5-2B</text>
+<rect x="260" y="665" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="665" width="461.7" height="25" rx="6" fill="#475569"/>
+<text x="733.742" y="683" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">56.31%</text>
+<text x="242" y="728" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Laya English</text>
+<rect x="260" y="710" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="710" width="435.1" height="25" rx="6" fill="#475569"/>
+<text x="707.092" y="728" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">53.06%</text>
+<text x="242" y="773" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Eos-0.8B</text>
+<rect x="260" y="755" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="755" width="426.5" height="25" rx="6" fill="#475569"/>
+<text x="698.482" y="773" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">52.01%</text>
+<text x="242" y="818" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Kai-0.6B</text>
+<rect x="260" y="800" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="800" width="396.6" height="25" rx="6" fill="#475569"/>
+<text x="668.634" y="818" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">48.37%</text>
+<text x="242" y="863" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="450" text-anchor="end">Laya Multilingual</text>
+<rect x="260" y="845" width="820" height="25" rx="6" fill="#111c2e"/>
+<rect x="260" y="845" width="386.5" height="25" rx="6" fill="#475569"/>
+<text x="658.466" y="863" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="start">47.13%</text>
+<line x1="60" y1="907" x2="1140" y2="907" stroke="#1e293b" stroke-width="1"/>
+<text x="60" y="935" fill="#94a3b8" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE: local measurement · Other rows: externally published Decision 1.0 results</text>
+<text x="60" y="963" fill="#64748b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">Accuracy comparison only; this is not a controlled latency or hardware comparison.</text>
+</svg>

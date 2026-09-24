@@ -6,16 +6,32 @@
   <a href="https://github.com/rudransh2004/carve/actions/workflows/ci.yml"><img src="https://github.com/rudransh2004/carve/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB" alt="Python 3.11+" />
   <img src="https://img.shields.io/badge/license-Apache--2.0-2ea44f" alt="Apache-2.0" />
+  <img src="https://img.shields.io/badge/open--source-Jev--style-0891b2" alt="Open-source Jev-style model" />
   <img src="https://img.shields.io/badge/API-TypeSafe--compatible-7c3aed" alt="TypeSafe compatible" />
   <img src="https://img.shields.io/badge/probabilities-raw-f59e0b" alt="Raw probabilities" />
 </p>
 
+<p align="center">
+  <a href="#quickstart">Quickstart</a> ·
+  <a href="#decision-10-comparison">Benchmarks</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="docs/api.md">API</a> ·
+  <a href="docs/model-card.md">Model card</a> ·
+  <a href="docs/reproducibility.md">Reproduce</a>
+</p>
+
+# CARVE: Open-Source Jev-Style Decision Model
+
 **Candidate-Aligned Readout via Vocabulary Evidence**
 
-CARVE turns Qwen3.8-27B into a non-thinking, one-token decision service. It
-scores only the candidate letters assigned to user-defined options and returns
-typed Noul, Choice, or Score answers through a TypeSafe-compatible API. CARVE
-does not generate free-form JSON and then parse it.
+CARVE is an Apache-2.0, open-source Jev-style/System One decision model built
+on Qwen3.8-27B. It scores only candidate letters assigned to user-defined
+options and returns typed Noul, Choice, or Score answers through a
+TypeSafe-compatible API. It makes each decision with one output token—without
+generating free-form JSON and parsing it afterward.
+
+“Jev-style” describes the typed decision interface and task category. CARVE is
+an independent project and is not affiliated with or endorsed by TypeSafe AI.
 
 > CARVE probabilities are **raw restricted candidate-token preferences**.
 > They are not calibrated probabilities of correctness and must not be used as
@@ -32,6 +48,21 @@ does not generate free-form JSON and then parse it.
   of presenting raw softmax as calibrated confidence.
 
 ## Measured results
+
+### Decision 1.0 comparison
+
+<p align="center">
+  <img src="assets/decision1-model-comparison.svg" alt="Decision 1.0 transfer-v9 accuracy comparison for CARVE, Jev, Kev, Lux, Qwen, Nox, Decider, Sol, Laya, Eos, and Kai" width="100%" />
+</p>
+
+CARVE ranks second in this published comparison: **82.22%**, behind Jev at
+**87.19%** and ahead of Kev-9B at **79.25%**. CARVE was measured locally;
+competitor values are externally published results from the
+[Decision 1.0 evaluation](https://huggingface.co/llm-semantic-router/Decision-1.0-Lux-9B/blob/main/EVALUATION.md).
+See the [chart data](artifacts/decision1-model-comparison.json) and
+[reproduction protocol](docs/reproducibility.md). This is an accuracy
+comparison on the same named protocol, not a controlled hardware or latency
+comparison.
 
 **Decision quality**
 

@@ -1,0 +1,26 @@
+{
+  "benchmark": "Decision 1.0 transfer-v9",
+  "metric": "accuracy",
+  "scope": "1,046 clean, knowable test decisions",
+  "results": [
+    {"model": "Jev", "accuracy": 0.8719, "provenance": "published"},
+    {"model": "CARVE-FP8-FS2", "accuracy": 0.8221797323, "provenance": "measured"},
+    {"model": "Kev-9B", "accuracy": 0.7925, "provenance": "published"},
+    {"model": "Lux-9B", "accuracy": 0.7772, "provenance": "published"},
+    {"model": "Kev-4B", "accuracy": 0.761, "provenance": "published"},
+    {"model": "Qwen3.5-9B", "accuracy": 0.7323, "provenance": "published"},
+    {"model": "Nox-4B", "accuracy": 0.696, "provenance": "published"},
+    {"model": "Decider", "accuracy": 0.6931, "provenance": "published"},
+    {"model": "Qwen3.5-4B", "accuracy": 0.6883, "provenance": "published"},
+    {"model": "Kev-0.8B", "accuracy": 0.6119, "provenance": "published"},
+    {"model": "Sol-2B", "accuracy": 0.5707, "provenance": "published"},
+    {"model": "Qwen3.5-2B", "accuracy": 0.5631, "provenance": "published"},
+    {"model": "Laya English", "accuracy": 0.5306, "provenance": "published"},
+    {"model": "Eos-0.8B", "accuracy": 0.5201, "provenance": "published"},
+    {"model": "Kai-0.6B", "accuracy": 0.4837, "provenance": "published"},
+    {"model": "Laya Multilingual", "accuracy": 0.4713, "provenance": "published"}
+  ],
+  "published_source": "https://huggingface.co/llm-semantic-router/Decision-1.0-Lux-9B/blob/main/EVALUATION.md",
+  "carve_source": "artifacts/benchmark-summary.json",
+  "caveat": "CARVE was measured locally; other rows are externally published. The chart compares accuracy on the same named benchmark protocol, not latency or hardware."
+}

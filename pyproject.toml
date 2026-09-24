@@ -5,12 +5,20 @@ build-backend = "hatchling.build"
 [project]
 name = "carve-decision"
 version = "0.1.0"
-description = "Candidate-Aligned Readout via Vocabulary Evidence"
+description = "Open-source Jev-style decision model using one-token Qwen3.8 candidate-logit readout"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.11"
 authors = [{ name = "Rudransh Agnihotri" }]
-keywords = ["decision-model", "qwen", "vllm", "typesafe"]
+keywords = [
+  "decision-model",
+  "jev",
+  "open-source",
+  "qwen",
+  "system-one",
+  "typesafe",
+  "vllm",
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "License :: OSI Approved :: Apache Software License",

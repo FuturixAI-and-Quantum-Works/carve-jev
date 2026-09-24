@@ -55,3 +55,15 @@ python scripts/benchmark_carve_load.py \
 Machine-readable files in `artifacts/` are sanitized summaries from the source
 workspace. Datasets, generated prediction JSONL, model weights, caches, and
 virtual environments are intentionally excluded.
+
+## README comparison figure
+
+The model-comparison figure is generated from committed JSON rather than
+hand-edited:
+
+```bash
+python scripts/build_readme_assets.py
+```
+
+Its inputs, external provenance, and comparability caveat are recorded in
+`artifacts/decision1-model-comparison.json`.
