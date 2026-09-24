@@ -172,20 +172,25 @@ def build_family_by_task() -> None:
     report = json.loads(FAMILY_DATA_PATH.read_text(encoding="utf-8"))
     tasks = report["tasks"]
     variants = report["variants"]
-    width = 1200
-    left = 300
-    right = 1110
-    top = 190
-    row_height = 52
-    height = top + len(tasks) * row_height + 145
+    width = 1400
+    left = 310
+    right = 1040
+    top = 205
+    row_height = 58
+    height = top + len(tasks) * row_height + 150
     chart_width = right - left
+    minimum_accuracy = 0.5
     colors = {
         "zs": "#60a5fa",
         "as": "#14b8a6",
         "fs1": "#818cf8",
         "fs2": "#22d3ee",
     }
-    offsets = {"zs": -9, "as": -3, "fs1": 3, "fs2": 9}
+    offsets = {"zs": -15, "as": -5, "fs1": 5, "fs2": 15}
+    value_columns = {"zs": 1110, "as": 1180, "fs1": 1250, "fs2": 1320}
+
+    def accuracy_x(value: float) -> float:
+        return left + chart_width * (value - minimum_accuracy) / (1 - minimum_accuracy)
 
     parts = [
         (
@@ -231,10 +236,35 @@ def build_family_by_task() -> None:
                 ),
             ]
         )
-        legend_x += 155
+        legend_x += 175
 
-    for tick in range(0, 101, 25):
-        x = left + chart_width * tick / 100
+    parts.append(
+        svg_text(
+            1215,
+            top - 54,
+            "EXACT VALUES",
+            size=12,
+            color="#64748b",
+            weight=700,
+            anchor="middle",
+        )
+    )
+    for variant in variants:
+        variant_id = str(variant["id"])
+        parts.append(
+            svg_text(
+                value_columns[variant_id],
+                top - 25,
+                variant_id.upper(),
+                size=13,
+                color=colors[variant_id],
+                weight=700,
+                anchor="middle",
+            )
+        )
+
+    for tick in range(50, 101, 10):
+        x = accuracy_x(tick / 100)
         parts.extend(
             [
                 (
@@ -256,8 +286,12 @@ def build_family_by_task() -> None:
     for index, task in enumerate(tasks):
         center_y = top + index * row_height
         values = [float(task[str(variant["id"])]) for variant in variants]
-        low_x = left + chart_width * min(values)
-        high_x = left + chart_width * max(values)
+        low_x = accuracy_x(min(values))
+        high_x = accuracy_x(max(values))
+        if index % 2:
+            parts.append(
+                f'<rect x="48" y="{center_y - 25}" width="1304" height="50" rx="8" fill="#0e1728"/>'
+            )
         parts.extend(
             [
                 svg_text(
@@ -279,28 +313,31 @@ def build_family_by_task() -> None:
         for variant in variants:
             variant_id = str(variant["id"])
             value = float(task[variant_id])
-            x = left + chart_width * value
-            parts.append(
-                f'<circle cx="{x}" cy="{center_y + offsets[variant_id]}" r="6" '
-                f'fill="{colors[variant_id]}" stroke="#0b1220" stroke-width="2"/>'
+            x = accuracy_x(value)
+            parts.extend(
+                [
+                    (
+                        f'<circle cx="{x}" cy="{center_y + offsets[variant_id]}" '
+                        f'r="7" fill="{colors[variant_id]}" stroke="#0b1220" '
+                        'stroke-width="2"/>'
+                    ),
+                    svg_text(
+                        value_columns[variant_id],
+                        center_y + offsets[variant_id] + 5,
+                        f"{value * 100:.1f}",
+                        size=13,
+                        color=colors[variant_id],
+                        weight=650,
+                        anchor="middle",
+                    ),
+                ]
             )
-        fs2 = float(task["fs2"])
-        parts.append(
-            svg_text(
-                min(right - 2, left + chart_width * fs2 + 13),
-                center_y + 14,
-                f"{fs2 * 100:.0f}",
-                size=12,
-                color=colors["fs2"],
-                weight=700,
-            )
-        )
 
     footer_y = top + len(tasks) * row_height + 28
     overall = report["overall"]
     parts.extend(
         [
-            f'<line x1="60" y1="{footer_y - 18}" x2="1140" y2="{footer_y - 18}" '
+            f'<line x1="60" y1="{footer_y - 18}" x2="1340" y2="{footer_y - 18}" '
             'stroke="#1e293b" stroke-width="1"/>',
             svg_text(
                 60,
