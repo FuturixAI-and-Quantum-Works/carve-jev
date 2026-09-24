@@ -23,6 +23,8 @@ jobs:
       - run: pip install -e ".[dev]" build
       - run: ruff format --check .
       - run: ruff check .
+      - run: bash -n scripts/*.sh
+      - run: python scripts/benchmark_carve.py --help
       - run: pytest
       - run: pip install build
         if: matrix.python-version == '3.12'

@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rudransh2004/carve/actions/workflows/ci.yml"><img src="https://github.com/rudransh2004/carve/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/rudransh2004/carve-jev/actions/workflows/ci.yml"><img src="https://github.com/rudransh2004/carve-jev/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB" alt="Python 3.11+" />
   <img src="https://img.shields.io/badge/license-Apache--2.0-2ea44f" alt="Apache-2.0" />
   <img src="https://img.shields.io/badge/open--source-Jev--like_family-0891b2" alt="Open-source Jev-like model family" />
@@ -153,6 +153,50 @@ denominator. **Result:** zero-shot 77.11%, one-shot 78.61%, two-shot 79.92%;
 two-shot fixed 60 zero-shot errors and broke 32 correct answers
 (McNemar p=0.00461). Full chat examples beat compact and minimal serialization,
 both 78.71%. **Decision:** select two full chat demonstrations.
+
+**What “two-shot” means:** the caller supplies two labeled examples for the
+same question before the target state:
+
+```json
+{
+  "model": "CARVE-27B",
+  "state": "The app crashes whenever I upload a receipt.",
+  "demonstrations": {
+    "route": [
+      {
+        "state": "I was charged twice for one order.",
+        "question": {
+          "type": "choice",
+          "instructions": "Choose the support team.",
+          "criteria": {"billing": "Payment issue", "technical": "Product failure"}
+        },
+        "answer": "billing"
+      },
+      {
+        "state": "The dashboard stays blank after login.",
+        "question": {
+          "type": "choice",
+          "instructions": "Choose the support team.",
+          "criteria": {"billing": "Payment issue", "technical": "Product failure"}
+        },
+        "answer": "technical"
+      }
+    ]
+  },
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Choose the support team.",
+      "criteria": {"billing": "Payment issue", "technical": "Product failure"}
+    }
+  }
+}
+```
+
+With `demonstration_format="chat"`, CARVE turns this into
+`system → demo user → demo answer letter → demo user → demo answer letter →
+target user`, then scores only the target candidate letters. See the
+[full transformation](experiments/few-shot.md#concrete-two-shot-example).
 </details>
 
 <details>
@@ -214,19 +258,30 @@ back to the caller's option name.
 Requirements: Python 3.11+, Linux, a compatible NVIDIA GPU, and a vLLM build
 supporting `logprob_token_ids`.
 
+**Clone, install, download the model, and start vLLM plus CARVE:**
+
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e .
-# Install the tested compatible vLLM build separately.
-cp .env.example .env
-set -a; source .env; set +a
-bash scripts/serve_carve.sh
+git clone https://github.com/rudransh2004/carve-jev.git && cd carve-jev && bash scripts/quickstart.sh
 ```
 
 The defaults load `Qwen/Qwen3.8-27B-FP8`, expose vLLM at
 `http://127.0.0.1:8000`, and expose CARVE at `http://127.0.0.1:8011`.
-See [the detailed quickstart](docs/quickstart.md).
+The initial model download is large. See the
+[detailed quickstart](docs/quickstart.md) for the exact tested vLLM revision,
+custom environments, existing servers, and troubleshooting.
+
+**Run the complete canonical benchmark and write the result JSON:**
+
+```bash
+bash scripts/run_full_benchmark.sh
+```
+
+This runs all 1,046 clean, knowable test decisions with the frozen two-shot
+protocol, fetches the pinned public benchmark checkout when needed, verifies
+its SHA-256, and writes `artifacts/reproduced-summary.json`. Set
+`CARVE_TEST_SUITE` and `CARVE_DEV_SUITE` to use existing local files. Read the
+[benchmark methodology](docs/benchmark-methodology.md) before comparing
+results.
 
 ### curl
 
@@ -302,6 +357,7 @@ The server accepts the SDK bearer header but does not authenticate it.
 - [Experimental batch API](docs/batch-api.md)
 - [Multimodal status](docs/multimodal.md)
 - [Model card](docs/model-card.md)
+- [Benchmark methodology](docs/benchmark-methodology.md)
 - [Reproducibility](docs/reproducibility.md)
 - [References](docs/references.md)
 - [Release checklist](docs/release-checklist.md)

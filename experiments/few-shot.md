@@ -15,6 +15,84 @@ Two-shot was selected before the confirmatory test. In BF16 it scored 81.36%
 on test versus 80.11% zero-shot; the 1.24-point gain was not significant
 (exact McNemar p=0.208). The selected FP8 two-shot system later scored 82.22%.
 
+## Concrete two-shot example
+
+Suppose the options are ordered as `billing`, then `technical`. CARVE maps
+those names to candidate letters `A` and `B`. A request supplies demonstrations
+under the target question ID:
+
+```json
+{
+  "model": "CARVE-27B",
+  "state": "The app crashes whenever I upload a receipt.",
+  "demonstration_format": "chat",
+  "demonstrations": {
+    "route": [
+      {
+        "state": "I was charged twice for one order.",
+        "question": {
+          "type": "choice",
+          "instructions": "Choose the support team.",
+          "criteria": {
+            "billing": "Payment issue",
+            "technical": "Product failure"
+          }
+        },
+        "answer": "billing"
+      },
+      {
+        "state": "The dashboard stays blank after login.",
+        "question": {
+          "type": "choice",
+          "instructions": "Choose the support team.",
+          "criteria": {
+            "billing": "Payment issue",
+            "technical": "Product failure"
+          }
+        },
+        "answer": "technical"
+      }
+    ]
+  },
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Choose the support team.",
+      "criteria": {
+        "billing": "Payment issue",
+        "technical": "Product failure"
+      }
+    }
+  }
+}
+```
+
+For this question, the actual chat sequence sent to Qwen is equivalent to:
+
+```text
+SYSTEM
+Apply the supplied criterion to the supplied evidence. Choose exactly one
+listed option. Respond with only its uppercase letter, with no explanation or
+reasoning.
+
+USER (demonstration 1)
+{"evidence":"I was charged twice for one order.","criterion":"Choose the support team.","options":[{"letter":"A","description":"Payment issue"},{"letter":"B","description":"Product failure"}]}
+ASSISTANT
+A
+
+USER (demonstration 2)
+{"evidence":"The dashboard stays blank after login.","criterion":"Choose the support team.","options":[{"letter":"A","description":"Payment issue"},{"letter":"B","description":"Product failure"}]}
+ASSISTANT
+B
+
+USER (target)
+{"evidence":"The app crashes whenever I upload a receipt.","criterion":"Choose the support team.","options":[{"letter":"A","description":"Payment issue"},{"letter":"B","description":"Product failure"}]}
+```
+
+CARVE does not ask Qwen to generate an explanation. It requests one output
+token and exact log probabilities for `A` and `B`, applies a restricted
+softmax, then maps the winning letter back to `billing` or `technical`.
+
 ## Why shots cost time
 
 Mean prompt lengths were 220.5 tokens zero-shot, 431.6 one-shot, and 586.7

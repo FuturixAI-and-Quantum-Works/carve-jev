@@ -1,5 +1,10 @@
 # Reproducibility
 
+This page is the command-oriented reproduction guide. See
+[`benchmark-methodology.md`](benchmark-methodology.md) for data inclusion,
+split discipline, scoring formulas, timing boundaries, external-comparison
+rules, statistics, and threats to validity.
+
 ## Frozen identities
 
 - Qwen checkpoint: `Qwen/Qwen3.8-27B-FP8`
@@ -8,6 +13,8 @@
 - TypeSafe Python SDK: `0.7.1`
 - TypeSafe JavaScript SDK: `0.6.0`
 - Few-shot seed: `20260924`
+- Kev benchmark checkout:
+  `7405b72e73e2d24787f3720d162a21c974ff2ad2`
 - Transfer-v9 suite SHA-256:
   `048abea5e12c73c3a622ce5836898c00fa43766e0bf48fb2459e77ee9873497f`
 
@@ -26,16 +33,7 @@ family, record ID, and question ID. Composition tasks share the
 Obtain Decision 1.0 transfer-v9 under its applicable terms; it is not bundled.
 
 ```bash
-python scripts/benchmark_carve.py \
-  --suite /path/to/transfer-v9/test.jsonl \
-  --endpoint http://127.0.0.1:8011 \
-  --few-shot-pool /path/to/transfer-v9/development.jsonl \
-  --few-shot-k 2 \
-  --few-shot-reserve 2 \
-  --few-shot-seed 20260924 \
-  --demonstration-format chat \
-  --concurrency 1 \
-  --output artifacts/reproduced-summary.json
+bash scripts/run_full_benchmark.sh
 ```
 
 Verify the suite hash before comparing scores. GPU kernels, driver versions,

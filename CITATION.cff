@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use CARVE, please cite this software."
-title: "CARVE: Candidate-Aligned Readout via Vocabulary Evidence"
+title: "CARVE: An Open-Source Jev-Like Model Family"
 type: software
 version: 0.1.0
 date-released: 2026-09-24
@@ -8,10 +8,11 @@ authors:
   - family-names: "Agnihotri"
     given-names: "Rudransh"
 license: Apache-2.0
-repository-code: "https://github.com/rudransh2004/carve"
-url: "https://github.com/rudransh2004/carve"
+repository-code: "https://github.com/rudransh2004/carve-jev"
+url: "https://github.com/rudransh2004/carve-jev"
 abstract: >-
-  A one-token candidate-logit readout that exposes Qwen3.8 as a typed,
+  Candidate-Aligned Readout via Vocabulary Evidence: a one-token
+  candidate-logit readout that exposes Qwen3.8 as a typed,
   TypeSafe-compatible decision service.
 keywords:
   - decision model

@@ -14,6 +14,18 @@ CARVE implements the TypeSafe System One success-response contract used by
 questions. Choice criteria may be an object; Score criteria may be a list;
 Noul uses true/false options.
 
+Optional few-shot fields:
+
+- `demonstrations`: object mapping each target question ID to a list of labeled
+  `{state, question, answer}` examples.
+- `demonstration_format`: `chat` (default), `compact`, or `minimal`.
+- `prompt_profile`: one of the configured server prompt profiles.
+
+Demonstration answers use the caller's option name, not the internal candidate
+letter. CARVE validates the answer, maps it to the corresponding letter, and
+constructs the model messages. See the
+[concrete two-shot example](../experiments/few-shot.md#concrete-two-shot-example).
+
 Every successful decision response declares:
 
 ```json

@@ -34,10 +34,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/rudransh2004/carve"
-Documentation = "https://github.com/rudransh2004/carve#readme"
-Issues = "https://github.com/rudransh2004/carve/issues"
-Source = "https://github.com/rudransh2004/carve"
+Homepage = "https://github.com/rudransh2004/carve-jev"
+Documentation = "https://github.com/rudransh2004/carve-jev#readme"
+Issues = "https://github.com/rudransh2004/carve-jev/issues"
+Source = "https://github.com/rudransh2004/carve-jev"
 
 [project.optional-dependencies]
 benchmark = ["numpy>=2,<3"]
