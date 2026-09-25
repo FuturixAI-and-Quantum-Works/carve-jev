@@ -353,13 +353,13 @@ The server accepts the SDK bearer header but does not authenticate it.
 
 ## CARVE-Tools
 
-The existing `POST /v1/systemone` endpoint also supports decision-native tool
-calling. CARVE treats function selection as a Choice over tool names, chooses
-one function—or no function—from one-token candidate logits, then sends only
-the winning function's schema to vLLM for constrained JSON arguments.
+The experimental `POST /v1/tool-calls` endpoint adds decision-native tool
+calling. CARVE first chooses one function—or no function—from one-token
+candidate logits. It then sends only the winning function's schema to vLLM for
+constrained JSON argument generation.
 
 ```bash
-curl http://127.0.0.1:8011/v1/systemone \
+curl http://127.0.0.1:8011/v1/tool-calls \
   -H 'Content-Type: application/json' \
   -d '{"model":"CARVE-27B","state":"Weather in Paris?","tools":[{"type":"function","function":{"name":"get_weather","description":"Get weather for a city","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"],"additionalProperties":false}}}]}'
 ```
@@ -371,8 +371,8 @@ CARVE validates but never executes a function. Read the
 
 ## Experimental APIs
 
-- Optional `tools` on `POST /v1/systemone` combine candidate-logit function
-  selection with schema-constrained argument generation.
+- `POST /v1/tool-calls` combines candidate-logit tool selection with
+  schema-constrained argument generation.
 - `POST /v1/systemone/batch` reduces HTTP round trips and preserves request
   order. It is a CARVE extension, not part of the official TypeSafe contract.
   See [batch API](docs/batch-api.md).

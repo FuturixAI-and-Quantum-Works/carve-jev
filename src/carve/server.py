@@ -5,6 +5,7 @@ import asyncio
 import json
 import math
 import re
+import time
 import uuid
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
@@ -439,10 +440,9 @@ class CandidateServer:
             raise ValueError("state must be a string, object, or array")
         if not isinstance(body.get("model"), str) or not body["model"].strip():
             raise ValueError("model must be a non-empty string")
-        has_tools = "tools" in body
-        questions = body.get("questions", {})
-        if not isinstance(questions, dict) or (not questions and not has_tools):
-            raise ValueError("questions must be a non-empty object when tools are not supplied")
+        questions = body.get("questions")
+        if not isinstance(questions, dict) or not questions:
+            raise ValueError("questions must be a non-empty object")
         prompt_profile = body.get("prompt_profile", self.prompt_profile)
         if prompt_profile not in PROMPT_PROFILES:
             raise ValueError(f"unknown prompt profile: {prompt_profile!r}")
@@ -452,7 +452,7 @@ class CandidateServer:
         demonstration_format = body.get("demonstration_format", "chat")
         if demonstration_format not in {"chat", "compact", "minimal"}:
             raise ValueError("demonstration_format must be chat, compact, or minimal")
-        question_results = asyncio.gather(
+        results = await asyncio.gather(
             *[
                 self.decide_question(
                     body["state"],
@@ -466,12 +466,7 @@ class CandidateServer:
                 for question_id, question in questions.items()
             ]
         )
-        tool_result: dict[str, Any] | None = None
-        if has_tools:
-            results, tool_result = await asyncio.gather(question_results, self.tool_call(body))
-        else:
-            results = await question_results
-        response = {
+        return {
             "model": self.system_name,
             "backbone_model": self.model,
             "answers": {question_id: answer for question_id, answer, _ in results},
@@ -486,20 +481,6 @@ class CandidateServer:
             "prompt_profile": prompt_profile,
             "demonstration_format": demonstration_format,
         }
-        if tool_result is not None:
-            response["tool_selection"] = tool_result["selection"]
-            response["tool_calls"] = tool_result["tool_calls"]
-            response["finish_reason"] = tool_result["finish_reason"]
-            response["tool_method"] = tool_result["method"]
-            response["usage"] = {
-                "input_tokens": (
-                    response["usage"]["input_tokens"] + tool_result["usage"]["input_tokens"]
-                ),
-                "output_tokens": (
-                    response["usage"]["output_tokens"] + tool_result["usage"]["output_tokens"]
-                ),
-            }
-        return response
 
     async def generate_tool_arguments(
         self,
@@ -689,6 +670,11 @@ class CandidateServer:
             finish_reason = "tool_calls"
 
         return {
+            "id": f"tooldec_{uuid.uuid4().hex}",
+            "object": "carve.tool_decision",
+            "created": int(time.time()),
+            "model": self.system_name,
+            "backbone_model": self.model,
             "selection": selection,
             "tool_calls": tool_calls,
             "finish_reason": finish_reason,
@@ -696,6 +682,9 @@ class CandidateServer:
             "method": (
                 "CARVE-Tools: candidate-logit selection plus schema-constrained argument generation"
             ),
+            "probability_level": PROBABILITY_LEVEL,
+            "probability_semantics": PROBABILITY_SEMANTICS,
+            "thinking": False,
         }
 
     async def decide_batch(self, body: dict[str, Any]) -> dict[str, Any]:
@@ -780,6 +769,13 @@ def create_app(
     async def systemone(body: dict[str, Any]) -> dict[str, Any]:
         try:
             return await server.decide(body)
+        except (ValueError, KeyError, TypeError, httpx.HTTPStatusError) as error:
+            raise translate_error(error) from error
+
+    @app.post("/v1/tool-calls")
+    async def tool_calls(body: dict[str, Any]) -> dict[str, Any]:
+        try:
+            return await server.tool_call(body)
         except (
             ValueError,
             KeyError,
@@ -793,13 +789,7 @@ def create_app(
     async def systemone_batch(body: dict[str, Any]) -> dict[str, Any]:
         try:
             return await server.decide_batch(body)
-        except (
-            ValueError,
-            KeyError,
-            TypeError,
-            ToolArgumentError,
-            httpx.HTTPStatusError,
-        ) as error:
+        except (ValueError, KeyError, TypeError, httpx.HTTPStatusError) as error:
             raise translate_error(error, batch=True) from error
 
     @app.get("/v1/models")

@@ -269,13 +269,13 @@ def test_tool_call_selects_then_generates_only_winner_arguments(monkeypatch) -> 
         server = client.app.state.carve_server
         asyncio.run(server.client.aclose())
         server.client = httpx.AsyncClient(transport=httpx.MockTransport(capture))
-        response = client.post("/v1/systemone", json=tool_request())
+        response = client.post("/v1/tool-calls", json=tool_request())
 
     assert response.status_code == 200
     payload = response.json()
     assert payload["finish_reason"] == "tool_calls"
-    assert payload["tool_selection"]["selected_tool"] == "get_weather"
-    assert payload["tool_selection"]["no_tool_probability"] is not None
+    assert payload["selection"]["selected_tool"] == "get_weather"
+    assert payload["selection"]["no_tool_probability"] is not None
     assert payload["tool_calls"][0]["function"] == {
         "name": "get_weather",
         "arguments": '{"city":"Paris"}',
@@ -288,25 +288,6 @@ def test_tool_call_selects_then_generates_only_winner_arguments(monkeypatch) -> 
     argument_payload = json.loads(seen[1]["messages"][-1]["content"])
     assert argument_payload["selected_function"]["name"] == "get_weather"
     assert "search_docs" not in seen[1]["messages"][-1]["content"]
-
-
-def test_systemone_combines_typed_questions_and_tool_call(monkeypatch) -> None:
-    request = tool_request()
-    request["questions"] = {
-        "urgent": {
-            "type": "noul",
-            "instructions": "Is this request urgent?",
-        }
-    }
-    with create_test_client(monkeypatch) as client:
-        response = client.post("/v1/systemone", json=request)
-
-    assert response.status_code == 200
-    payload = response.json()
-    assert payload["answers"]["urgent"]["type"] == "noul"
-    assert payload["tool_selection"]["selected_tool"] == "get_weather"
-    assert payload["tool_calls"][0]["function"]["name"] == "get_weather"
-    assert payload["usage"] == {"input_tokens": 40, "output_tokens": 7}
 
 
 def test_tool_call_can_choose_no_tool_without_argument_generation(monkeypatch) -> None:
@@ -333,14 +314,14 @@ def test_tool_call_can_choose_no_tool_without_argument_generation(monkeypatch) -
         asyncio.run(server.client.aclose())
         server.client = httpx.AsyncClient(transport=httpx.MockTransport(choose_last))
         response = client.post(
-            "/v1/systemone",
+            "/v1/tool-calls",
             json={**tool_request(), "state": "Thanks, that is all."},
         )
 
     assert response.status_code == 200
     payload = response.json()
-    assert payload["tool_selection"]["selected_tool"] is None
-    assert payload["tool_selection"]["no_tool_probability"] > 0.5
+    assert payload["selection"]["selected_tool"] is None
+    assert payload["selection"]["no_tool_probability"] > 0.5
     assert payload["tool_calls"] == []
     assert payload["finish_reason"] == "stop"
     assert calls == 1
@@ -365,11 +346,11 @@ def test_forced_tool_skips_selection_and_uses_schema(monkeypatch) -> None:
         server = client.app.state.carve_server
         asyncio.run(server.client.aclose())
         server.client = httpx.AsyncClient(transport=httpx.MockTransport(arguments_only))
-        response = client.post("/v1/systemone", json=request)
+        response = client.post("/v1/tool-calls", json=request)
 
     assert response.status_code == 200
-    assert response.json()["tool_selection"]["mode"] == "forced"
-    assert response.json()["tool_selection"]["confidence"] == 1.0
+    assert response.json()["selection"]["mode"] == "forced"
+    assert response.json()["selection"]["confidence"] == 1.0
     assert calls == 1
 
 
@@ -386,7 +367,7 @@ def test_tool_call_confidence_gate_skips_arguments(monkeypatch) -> None:
         asyncio.run(server.client.aclose())
         server.client = httpx.AsyncClient(transport=httpx.MockTransport(count))
         response = client.post(
-            "/v1/systemone",
+            "/v1/tool-calls",
             json={**tool_request(), "minimum_confidence": 0.99},
         )
 
@@ -413,7 +394,7 @@ def test_tool_call_rejects_invalid_generated_arguments(monkeypatch) -> None:
         server = client.app.state.carve_server
         asyncio.run(server.client.aclose())
         server.client = httpx.AsyncClient(transport=httpx.MockTransport(invalid_arguments))
-        response = client.post("/v1/systemone", json=tool_request())
+        response = client.post("/v1/tool-calls", json=tool_request())
 
     assert response.status_code == 502
     assert "invalid arguments" in response.json()["detail"]
@@ -423,9 +404,9 @@ def test_tool_call_validates_schema_and_parallel_mode(monkeypatch) -> None:
     request = tool_request()
     request["parallel_tool_calls"] = True
     with create_test_client(monkeypatch) as client:
-        parallel = client.post("/v1/systemone", json=request)
+        parallel = client.post("/v1/tool-calls", json=request)
         invalid_schema = client.post(
-            "/v1/systemone",
+            "/v1/tool-calls",
             json={
                 **tool_request(),
                 "tools": [
@@ -440,7 +421,7 @@ def test_tool_call_validates_schema_and_parallel_mode(monkeypatch) -> None:
             },
         )
         external_ref = client.post(
-            "/v1/systemone",
+            "/v1/tool-calls",
             json={
                 **tool_request(),
                 "tools": [
