@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import importlib.util
 import json
+from pathlib import Path
 
 import httpx
 import pytest
@@ -63,7 +65,11 @@ def test_payload_removes_labels_and_adds_demonstrations() -> None:
 
 @pytest.mark.asyncio
 async def test_serial_latency_excludes_semaphore_queue_wait(monkeypatch, tmp_path) -> None:
-    from scripts import benchmark_carve
+    script_path = Path(__file__).parents[1] / "scripts" / "benchmark_carve.py"
+    spec = importlib.util.spec_from_file_location("benchmark_carve_script", script_path)
+    assert spec is not None and spec.loader is not None
+    benchmark_carve = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(benchmark_carve)
 
     suite = tmp_path / "test.jsonl"
     suite.write_text(
