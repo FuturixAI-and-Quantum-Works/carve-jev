@@ -14,7 +14,7 @@ def main() -> None:
     args = parser.parse_args()
 
     response = httpx.post(
-        f"{args.endpoint.rstrip('/')}/v1/tool-calls",
+        f"{args.endpoint.rstrip('/')}/v1/systemone",
         json={
             "model": args.model,
             "state": "What is the weather in Paris in Celsius?",
@@ -59,8 +59,8 @@ def main() -> None:
     )
     response.raise_for_status()
     payload = response.json()
-    if payload["selection"]["selected_tool"] != "get_weather":
-        raise RuntimeError(f"unexpected selection: {payload['selection']}")
+    if payload["tool_selection"]["selected_tool"] != "get_weather":
+        raise RuntimeError(f"unexpected selection: {payload['tool_selection']}")
     if not payload["tool_calls"]:
         raise RuntimeError(f"no tool call returned: {payload}")
     arguments = payload["tool_calls"][0]["parsed_arguments"]

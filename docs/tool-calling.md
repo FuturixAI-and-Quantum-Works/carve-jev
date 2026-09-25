@@ -1,7 +1,7 @@
 # CARVE-Tools: decision-native tool calling
 
 CARVE-Tools is an experimental tool-calling extension for the CARVE Jev-like
-model family. It exposes one endpoint that performs two separate jobs:
+model family. The existing System One endpoint performs two internal jobs:
 
 1. CARVE selects one function, or no function, from next-token candidate
    logits.
@@ -26,13 +26,16 @@ execution remain caller responsibilities.
 
 ## Endpoint
 
-`POST /v1/tool-calls`
+`POST /v1/systemone`
 
 With CARVE running, execute the reusable live check:
 
 ```bash
 python scripts/smoke_tool_calling.py
 ```
+
+`tools` may be supplied alone or alongside ordinary `questions`; the same
+response then contains both typed `answers` and `tool_calls`.
 
 ```json
 {
@@ -79,9 +82,9 @@ Example response:
 
 ```json
 {
-  "object": "carve.tool_decision",
   "model": "CARVE-27B",
-  "selection": {
+  "answers": {},
+  "tool_selection": {
     "mode": "auto",
     "selected_tool": "get_weather",
     "confidence": 0.91,

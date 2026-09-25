@@ -6,7 +6,8 @@ All notable changes follow Keep a Changelog conventions.
 
 ### Added
 
-- Experimental `POST /v1/tool-calls` CARVE-Tools endpoint.
+- Experimental CARVE-Tools support within the existing `POST /v1/systemone`
+  endpoint.
 - One-token probabilistic function selection with auto, required, none, and
   forced modes.
 - No-tool and configurable low-confidence gates.

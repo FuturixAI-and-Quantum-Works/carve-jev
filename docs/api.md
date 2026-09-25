@@ -7,10 +7,9 @@ CARVE implements the TypeSafe System One success-response contract used by
 
 - `GET /health` — process and configured-backbone health metadata.
 - `GET /v1/models` — TypeSafe-compatible model discovery.
-- `POST /v1/systemone` — typed Noul, Choice, and Score decisions.
+- `POST /v1/systemone` — typed Noul, Choice, and Score decisions, plus optional
+  CARVE-Tools selection and argument generation.
 - `POST /v1/systemone/batch` — experimental CARVE bulk extension.
-- `POST /v1/tool-calls` — experimental probabilistic tool selection and
-  schema-constrained argument generation.
 
 `state` may be a string, object, or array. A request may contain multiple named
 questions. Choice criteria may be an object; Score criteria may be a list;
