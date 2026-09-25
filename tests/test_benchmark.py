@@ -1,5 +1,12 @@
 from __future__ import annotations
 
+import argparse
+import asyncio
+import json
+
+import httpx
+import pytest
+
 from carve.benchmark import (
     demonstrations_for_record,
     expected_label,
@@ -52,3 +59,59 @@ def test_payload_removes_labels_and_adds_demonstrations() -> None:
     assert "label" not in payload["questions"]["route"]
     assert "src" not in payload["questions"]["route"]
     assert len(payload["demonstrations"]["route"]) == 2
+
+
+@pytest.mark.asyncio
+async def test_serial_latency_excludes_semaphore_queue_wait(monkeypatch, tmp_path) -> None:
+    from scripts import benchmark_carve
+
+    suite = tmp_path / "test.jsonl"
+    suite.write_text(
+        "\n".join(json.dumps(record(str(index), "routing", "a")) for index in range(3)),
+        encoding="utf-8",
+    )
+
+    async def respond(_: httpx.Request) -> httpx.Response:
+        await asyncio.sleep(0.05)
+        return httpx.Response(
+            200,
+            json={
+                "answers": {
+                    "route": {
+                        "type": "choice",
+                        "choice": "a",
+                        "probabilities": {"a": 0.9, "b": 0.1},
+                    }
+                }
+            },
+        )
+
+    real_client = httpx.AsyncClient
+    monkeypatch.setattr(
+        benchmark_carve.httpx,
+        "AsyncClient",
+        lambda **kwargs: real_client(
+            transport=httpx.MockTransport(respond),
+            **kwargs,
+        ),
+    )
+    args = argparse.Namespace(
+        suite=suite,
+        endpoint="http://carve.test",
+        model="CARVE-27B",
+        prompt_profile="baseline",
+        few_shot_pool=None,
+        few_shot_k=0,
+        few_shot_reserve=0,
+        few_shot_seed=20260924,
+        demonstration_format="chat",
+        concurrency=1,
+        timeout=1.0,
+        limit=None,
+        output=tmp_path / "summary.json",
+    )
+
+    summary = await benchmark_carve.run(args)
+
+    assert summary["correct"] == 3
+    assert 40 <= summary["latency_ms_per_decision"]["p50"] < 90

@@ -4,6 +4,8 @@
 
 - Linux, Python 3.11+, `git`, `curl`, and a recent NVIDIA driver
 - Enough GPU memory for Qwen3.8-27B-FP8 and its KV cache
+- At least 45 GiB free disk for a fresh environment plus checkpoint download,
+  or an existing local checkpoint
 - A vLLM build supporting `logprob_token_ids`
 - Hugging Face access to `Qwen/Qwen3.8-27B-FP8`
 
@@ -23,37 +25,32 @@ git clone https://github.com/rudransh2004/carve-jev.git && cd carve-jev && bash 
 ```
 
 The first run downloads the model and can take significant time and disk
-space. The script installs the current `vllm` package by default. To supply a
-specific package or source reference, set `CARVE_VLLM_SPEC`; to use a vLLM
-already installed in `.venv`, set `CARVE_SKIP_VLLM_INSTALL=1`.
+space. A preflight check stops before installation when storage is
+insufficient. Set `CARVE_MODEL` and `CARVE_TOKENIZER` in `.env` to reuse an
+existing local checkpoint, or point `HF_HOME` at a larger filesystem. The
+script installs `vllm==0.30.0`, which passed the clean-install test. To try
+another published package or source reference, set `CARVE_VLLM_SPEC`; to use a
+vLLM already installed in `.venv`, set `CARVE_SKIP_VLLM_INSTALL=1`.
 
 Examples:
 
 ```bash
+CARVE_VLLM_SPEC=vllm bash scripts/quickstart.sh
 CARVE_VLLM_SPEC='vllm==<compatible-version>' bash scripts/quickstart.sh
 CARVE_SKIP_VLLM_INSTALL=1 bash scripts/quickstart.sh
 ```
 
-## Reproduce the tested environment
+## Runtime versions and benchmark reproducibility
 
-For exact comparisons, use the frozen vLLM source and compiled-wheel revisions:
+The 82.22% headline result used historical vLLM source revision
+`b44895cf932be890235b700b49b0753261cf5b97`. Its old precompiled wheel is not
+assumed to remain downloadable, so the quickstart does not depend on it.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-git clone https://github.com/vllm-project/vllm.git .vendor/vllm
-git -C .vendor/vllm checkout b44895cf932be890235b700b49b0753261cf5b97
-VLLM_USE_PRECOMPILED=1 \
-VLLM_PRECOMPILED_WHEEL_COMMIT=9bbf7418e85020dc76da9f60cdfe6c4e912ec048 \
-  python -m pip install -e .vendor/vllm
-python -m pip install -e .
-cp .env.example .env
-set -a; source .env; set +a
-VLLM_BIN=.venv/bin/vllm PYTHON_BIN=.venv/bin/python bash scripts/serve_carve.sh
-```
-
-The pinned precompiled wheel is an installation aid; the CARVE-facing Python
-source revision is the vLLM revision listed above.
+A clean installation with `vllm==0.30.0` completed the full benchmark at
+81.26%, 72.6 ms p50, and 91.2 ms p95. Candidate decisions near numerical ties
+can move across engine/kernel versions. Use the frozen source revision and
+build vLLM from source if reproducing the historical headline exactly; use the
+default quickstart when validating current developer usability.
 
 ## Use an existing vLLM server
 
@@ -106,6 +103,13 @@ without a security gateway.
 
 - `logprob_token_ids` rejected: the installed vLLM is too old or incompatible;
   use the tested revision above.
+- `No space left on device`: provide at least 45 GiB for a fresh setup, use a
+  local checkpoint through `CARVE_MODEL`, or move `HF_HOME`. Do not bypass the
+  disk guard unless storage has been handled separately.
+- `FlashInfer requires GPUs with sm75 or higher` on an SM120 Blackwell GPU:
+  leave `VLLM_USE_FLASHINFER_SAMPLER=0` enabled. CARVE sets this safe default
+  in `.env.example`; override it only after validating your vLLM/FlashInfer
+  combination.
 - CUDA out of memory: lower `CARVE_GPU_MEMORY_UTILIZATION`,
   `CARVE_MAX_NUM_SEQS`, or `CARVE_MAX_MODEL_LEN`.
 - Model access denied: authenticate with `huggingface-cli login` and accept any

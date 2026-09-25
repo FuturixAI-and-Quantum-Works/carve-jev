@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-25",
+  "repository": "https://github.com/rudransh2004/carve-jev",
+  "clean_clone_commit": "254059ca3fa7e206a73e4f23755d4b38686a2631",
+  "environment": {
+    "python": "3.12.3",
+    "vllm": "0.30.0",
+    "transformers": "5.17.0",
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "checkpoint": "Qwen/Qwen3.8-27B-FP8",
+    "checkpoint_revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+  },
+  "checks": {
+    "clean_clone": "passed",
+    "isolated_virtual_environment": "passed",
+    "package_install": "passed",
+    "vllm_install": "passed",
+    "model_server_health": "passed",
+    "carve_health": "passed",
+    "model_discovery": "passed",
+    "live_choice_decision": "passed",
+    "typesafe_sdk_0_7_1": "passed",
+    "benchmark_checkout_and_hash": "passed",
+    "full_1046_decision_benchmark": "passed"
+  },
+  "fresh_runtime_benchmark": {
+    "correct": 850,
+    "scored": 1046,
+    "accuracy": 0.8126195029,
+    "latency_p50_ms": 72.6058329456,
+    "latency_p95_ms": 91.2013940979,
+    "throughput_decisions_per_second": 13.3217046614,
+    "failures": 0
+  },
+  "issues_found": [
+    {
+      "issue": "The checkpoint download failed late when the host filesystem had only 226 MiB free.",
+      "fix": "Add an early disk-space preflight with local-checkpoint and HF_HOME guidance."
+    },
+    {
+      "issue": "vLLM 0.30.0 selected FlashInfer sampling on SM120 and failed its architecture check.",
+      "fix": "Default VLLM_USE_FLASHINFER_SAMPLER=0 and use native sampling."
+    },
+    {
+      "issue": "Serial benchmark latency included time waiting behind the semaphore.",
+      "fix": "Start request timing only after acquiring the semaphore and add a regression test."
+    }
+  ],
+  "comparability_note": "The fresh vLLM 0.30.0 run is a compatibility result. The 82.22% headline used the historical frozen vLLM source revision; near-tie decisions can change across engine and kernel versions."
+}

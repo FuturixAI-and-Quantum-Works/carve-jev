@@ -55,13 +55,13 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
                 demonstrations=demos,
                 demonstration_format=args.demonstration_format,
             )
-            request_started = time.perf_counter()
             async with semaphore:
+                request_started = time.perf_counter()
                 response = await client.post(
                     f"{args.endpoint.rstrip('/')}/v1/systemone",
                     json=payload,
                 )
-            latency_ms = (time.perf_counter() - request_started) * 1000
+                latency_ms = (time.perf_counter() - request_started) * 1000
             response.raise_for_status()
             result = response.json()
             for question_id, question in record["questions"].items():

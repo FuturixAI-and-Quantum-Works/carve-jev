@@ -18,6 +18,10 @@ rules, statistics, and threats to validity.
 - Transfer-v9 suite SHA-256:
   `048abea5e12c73c3a622ce5836898c00fa43766e0bf48fb2459e77ee9873497f`
 
+These identities describe the historical 82.22% headline run. The developer
+quickstart pins the currently available and clean-tested `vllm==0.30.0`;
+engine and kernel changes can move near-tie decisions.
+
 ## Canonical configuration
 
 Use the baseline prompt, full chat demonstrations, two development-only
@@ -36,8 +40,12 @@ Obtain Decision 1.0 transfer-v9 under its applicable terms; it is not bundled.
 bash scripts/run_full_benchmark.sh
 ```
 
-Verify the suite hash before comparing scores. GPU kernels, driver versions,
-vLLM scheduling, and batch shape can move near-tie outcomes.
+The wrapper fetches the pinned public Kev checkout and verifies the suite hash
+before running. GPU kernels, driver versions, vLLM scheduling, and batch shape
+can move near-tie outcomes. The
+[fresh-install validation record](../artifacts/fresh-install-validation.json)
+captures the current-runtime compatibility result; exact headline
+reproduction requires the frozen vLLM source revision above.
 
 ## Load reproduction
 

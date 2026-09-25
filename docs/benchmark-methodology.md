@@ -141,11 +141,11 @@ They are not used as calibrated correctness probabilities.
 
 ### Serial latency
 
-Concurrency is fixed at one. Timing starts immediately before acquiring the
-client semaphore and ends after the HTTP response returns, so it includes
-client queueing, CARVE request construction already completed by that point,
-upstream serving, response transfer, and parsing. It excludes model download,
-server startup, and cold compilation.
+Concurrency is fixed at one. Timing starts after acquiring the client
+semaphore, immediately before the HTTP request, and ends after the response
+returns. It excludes client-side semaphore wait, request construction, model
+download, server startup, and cold compilation; it includes CARVE and upstream
+serving plus response transfer.
 
 Headline latency comes from a warm server. The benchmark script does not
 perform hidden warm-up automatically; a reproduction must warm the model and

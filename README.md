@@ -255,8 +255,9 @@ back to the caller's option name.
 
 ## Quickstart
 
-Requirements: Python 3.11+, Linux, a compatible NVIDIA GPU, and a vLLM build
-supporting `logprob_token_ids`.
+Requirements: Python 3.11+, Linux, a compatible NVIDIA GPU, a vLLM build
+supporting `logprob_token_ids`, and roughly 45 GiB free disk for a fresh
+environment plus checkpoint download.
 
 **Clone, install, download the model, and start vLLM plus CARVE:**
 
@@ -268,7 +269,8 @@ The defaults load `Qwen/Qwen3.8-27B-FP8`, expose vLLM at
 `http://127.0.0.1:8000`, and expose CARVE at `http://127.0.0.1:8011`.
 The initial model download is large. See the
 [detailed quickstart](docs/quickstart.md) for the exact tested vLLM revision,
-custom environments, existing servers, and troubleshooting.
+local checkpoint reuse, custom environments, storage preflight, existing
+servers, and troubleshooting.
 
 **Run the complete canonical benchmark and write the result JSON:**
 
@@ -282,6 +284,14 @@ its SHA-256, and writes `artifacts/reproduced-summary.json`. Set
 `CARVE_TEST_SUITE` and `CARVE_DEV_SUITE` to use existing local files. Read the
 [benchmark methodology](docs/benchmark-methodology.md) before comparing
 results.
+
+The public-clone validation on 2026-09-25 passed installation, live inference,
+TypeSafe SDK compatibility, benchmark checkout/hash verification, and all
+1,046 decisions with zero request failures. With the currently pinned
+`vllm==0.30.0`, that compatibility run scored 81.26% with 72.6 ms p50 and
+91.2 ms p95. The 82.22% headline used the historical frozen vLLM revision; see
+the [machine-readable validation record](artifacts/fresh-install-validation.json)
+and [runtime-version note](docs/quickstart.md#runtime-versions-and-benchmark-reproducibility).
 
 ### curl
 
