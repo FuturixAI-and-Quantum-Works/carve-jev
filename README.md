@@ -16,7 +16,6 @@
   <a href="#quickstart">Quickstart</a> ·
   <a href="#decision-10-comparison">Benchmarks</a> ·
   <a href="#architecture">Architecture</a> ·
-  <a href="#carve-tools">Tool calling</a> ·
   <a href="docs/api.md">API</a> ·
   <a href="docs/model-card.md">Model card</a> ·
   <a href="docs/reproducibility.md">Reproduce</a>
@@ -351,28 +350,8 @@ print(response.choices["route"].choice)
 Run `python scripts/smoke_typesafe_sdk.py` for a live compatibility smoke test.
 The server accepts the SDK bearer header but does not authenticate it.
 
-## CARVE-Tools
-
-The experimental `POST /v1/tool-calls` endpoint adds decision-native tool
-calling. CARVE first chooses one function—or no function—from one-token
-candidate logits. It then sends only the winning function's schema to vLLM for
-constrained JSON argument generation.
-
-```bash
-curl http://127.0.0.1:8011/v1/tool-calls \
-  -H 'Content-Type: application/json' \
-  -d '{"model":"CARVE-27B","state":"Weather in Paris?","tools":[{"type":"function","function":{"name":"get_weather","description":"Get weather for a city","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"],"additionalProperties":false}}}]}'
-```
-
-Responses contain OpenAI-shaped `tool_calls`, parsed arguments, raw selection
-probabilities, a no-tool probability, and optional low-confidence gating.
-CARVE validates but never executes a function. Read the
-[full contract and safety boundary](docs/tool-calling.md).
-
 ## Experimental APIs
 
-- `POST /v1/tool-calls` combines candidate-logit tool selection with
-  schema-constrained argument generation.
 - `POST /v1/systemone/batch` reduces HTTP round trips and preserves request
   order. It is a CARVE extension, not part of the official TypeSafe contract.
   See [batch API](docs/batch-api.md).
@@ -385,7 +364,6 @@ CARVE validates but never executes a function. Read the
 
 - [Quickstart and operations](docs/quickstart.md)
 - [API contract](docs/api.md)
-- [CARVE-Tools](docs/tool-calling.md)
 - [Experimental batch API](docs/batch-api.md)
 - [Multimodal status](docs/multimodal.md)
 - [Model card](docs/model-card.md)

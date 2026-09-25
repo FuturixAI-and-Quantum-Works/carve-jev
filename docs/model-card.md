@@ -14,7 +14,6 @@ model weights.
 ## Intended use
 
 - Routing, classification, and ordinal scoring with explicit options
-- Experimental single-function selection and schema-constrained call planning
 - Local evaluation of typed System One workflows
 - Research on candidate-token readouts and low-decode-latency decisions
 
@@ -29,10 +28,6 @@ the wire-compatible `confidence` field are raw restricted candidate-token
 preferences. They are **not calibrated probabilities of correctness**.
 Thresholds must be validated and calibrated independently on representative
 deployment data.
-
-CARVE-Tools applies this readout only to function selection. Its arguments come
-from a separate constrained generation step and receive no selection
-probability or correctness guarantee.
 
 ## Evaluation
 
@@ -55,10 +50,6 @@ comparisons with hosted systems.
 - Prompt wording, candidate order, quantization, and batch shape can change
   results, particularly for near ties.
 - Missing evidence does not reliably produce low raw candidate probability.
-- Tool-selection and argument accuracy have not yet been measured on a
-  representative tool-use benchmark.
-- Schema-valid generated arguments can still be semantically wrong; CARVE does
-  not authorize or execute tools.
 - Only a synthetic image smoke test supports the multimodal path.
 - No fairness, toxicity, privacy, robustness, or domain-specific safety audit
   has been completed.

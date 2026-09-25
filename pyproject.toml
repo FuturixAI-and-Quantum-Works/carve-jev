@@ -16,7 +16,6 @@ keywords = [
   "open-source",
   "qwen",
   "system-one",
-  "tool-calling",
   "typesafe",
   "vllm",
 ]
@@ -30,7 +29,6 @@ classifiers = [
 dependencies = [
   "fastapi>=0.115,<1",
   "httpx>=0.27,<1",
-  "jsonschema>=4.23,<5",
   "transformers>=5.8,<6",
   "uvicorn[standard]>=0.30,<1",
 ]
