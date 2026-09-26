@@ -215,6 +215,27 @@ def test_multimodal_content_is_forwarded(monkeypatch) -> None:
     assert seen["content"][1]["type"] == "image_url"
 
 
+def test_unreachable_upstream_returns_bad_gateway(monkeypatch) -> None:
+    def refuse(request: httpx.Request) -> httpx.Response:
+        raise httpx.ConnectError("connection refused", request=request)
+
+    decision = {
+        "state": "The service is unavailable.",
+        "model": "CARVE-27B",
+        "questions": {"outage": {"type": "noul", "instructions": "Is this an outage?"}},
+    }
+    with create_test_client(monkeypatch) as client:
+        server = client.app.state.carve_server
+        asyncio.run(server.client.aclose())
+        server.client = httpx.AsyncClient(transport=httpx.MockTransport(refuse))
+        single = client.post("/v1/systemone", json=decision)
+        batch = client.post("/v1/systemone/batch", json={"requests": [decision]})
+
+    assert single.status_code == 502
+    assert single.json()["detail"] == "connection refused"
+    assert batch.status_code == 502
+
+
 def test_validation_errors(monkeypatch) -> None:
     with create_test_client(monkeypatch) as client:
         missing_state = client.post(

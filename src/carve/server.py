@@ -453,14 +453,14 @@ def create_app(
     async def systemone(body: dict[str, Any]) -> dict[str, Any]:
         try:
             return await server.decide(body)
-        except (ValueError, KeyError, TypeError, httpx.HTTPStatusError) as error:
+        except (ValueError, KeyError, TypeError, httpx.HTTPError) as error:
             raise translate_error(error) from error
 
     @app.post("/v1/systemone/batch")
     async def systemone_batch(body: dict[str, Any]) -> dict[str, Any]:
         try:
             return await server.decide_batch(body)
-        except (ValueError, KeyError, TypeError, httpx.HTTPStatusError) as error:
+        except (ValueError, KeyError, TypeError, httpx.HTTPError) as error:
             raise translate_error(error, batch=True) from error
 
     @app.get("/v1/models")
