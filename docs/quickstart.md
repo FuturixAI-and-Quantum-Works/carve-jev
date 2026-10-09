@@ -21,7 +21,7 @@ This creates `.venv`, installs CARVE and vLLM when needed, creates `.env`, then
 starts both the vLLM model server and the CARVE API:
 
 ```bash
-git clone https://github.com/rudransh2004/carve-jev.git && cd carve-jev && bash scripts/quickstart.sh
+git clone https://github.com/FuturixAI-and-Quantum-Works/carve-jev.git && cd carve-jev && bash scripts/quickstart.sh
 ```
 
 The first run downloads the model and can take significant time and disk

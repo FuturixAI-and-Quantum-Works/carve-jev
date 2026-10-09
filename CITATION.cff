@@ -8,8 +8,8 @@ authors:
   - family-names: "Agnihotri"
     given-names: "Rudransh"
 license: Apache-2.0
-repository-code: "https://github.com/rudransh2004/carve-jev"
-url: "https://github.com/rudransh2004/carve-jev"
+repository-code: "https://github.com/FuturixAI-and-Quantum-Works/carve-jev"
+url: "https://github.com/FuturixAI-and-Quantum-Works/carve-jev"
 abstract: >-
   Candidate-Aligned Readout via Vocabulary Evidence: a one-token
   candidate-logit readout that exposes Qwen3.8 as a typed,

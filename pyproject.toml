@@ -34,10 +34,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/rudransh2004/carve-jev"
-Documentation = "https://github.com/rudransh2004/carve-jev#readme"
-Issues = "https://github.com/rudransh2004/carve-jev/issues"
-Source = "https://github.com/rudransh2004/carve-jev"
+Homepage = "https://github.com/FuturixAI-and-Quantum-Works/carve-jev"
+Documentation = "https://github.com/FuturixAI-and-Quantum-Works/carve-jev#readme"
+Issues = "https://github.com/FuturixAI-and-Quantum-Works/carve-jev/issues"
+Source = "https://github.com/FuturixAI-and-Quantum-Works/carve-jev"
 
 [project.optional-dependencies]
 benchmark = ["numpy>=2,<3"]

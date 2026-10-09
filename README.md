@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rudransh2004/carve-jev/actions/workflows/ci.yml"><img src="https://github.com/rudransh2004/carve-jev/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/FuturixAI-and-Quantum-Works/carve-jev/actions/workflows/ci.yml"><img src="https://github.com/FuturixAI-and-Quantum-Works/carve-jev/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB" alt="Python 3.11+" />
   <img src="https://img.shields.io/badge/license-Apache--2.0-2ea44f" alt="Apache-2.0" />
   <img src="https://img.shields.io/badge/open--source-Jev--like_family-0891b2" alt="Open-source Jev-like model family" />
@@ -262,7 +262,7 @@ environment plus checkpoint download.
 **Clone, install, download the model, and start vLLM plus CARVE:**
 
 ```bash
-git clone https://github.com/rudransh2004/carve-jev.git && cd carve-jev && bash scripts/quickstart.sh
+git clone https://github.com/FuturixAI-and-Quantum-Works/carve-jev.git && cd carve-jev && bash scripts/quickstart.sh
 ```
 
 The defaults load `Qwen/Qwen3.8-27B-FP8`, expose vLLM at
