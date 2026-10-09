@@ -17,7 +17,6 @@ from brand import (
     MONO,
     MUTED,
     PAPER,
-    SKY,
     TRACK,
     WHITE,
 )
@@ -434,26 +433,22 @@ def build_family_by_task() -> None:
     tasks = report["tasks"]
     variants = report["variants"]
     width = 1400
-    left = 310
-    right = 1040
-    top = 238
-    row_height = 58
+    plot_left = 340
+    plot_right = 800
+    top = 240
+    row_height = 54
     height = top + len(tasks) * row_height + 150
-    chart_width = right - left
+    plot_width = plot_right - plot_left
     minimum_accuracy = 0.5
-    colors = {"zs": SKY, "as": BLUE, "fs1": INK_DEEP, "fs2": LIME}
-    outlines = {"zs": WHITE, "as": WHITE, "fs1": WHITE, "fs2": INK}
-    offsets = {"zs": -15, "as": -5, "fs1": 5, "fs2": 15}
-    value_columns = {"zs": 1110, "as": 1180, "fs1": 1250, "fs2": 1320}
+    value_columns = {"zs": 870, "as": 940, "fs1": 1010, "fs2": 1080}
+    delta_column = 1220
+    loss_ink, loss_fill = "#a4402b", "#f6ddd6"
 
     def accuracy_x(value: float) -> float:
-        return left + chart_width * (value - minimum_accuracy) / (1 - minimum_accuracy)
+        return plot_left + plot_width * (value - minimum_accuracy) / (1 - minimum_accuracy)
 
-    def dot(cx: float, cy: float, variant_id: str, radius: float) -> str:
-        return (
-            f'<circle cx="{cx}" cy="{cy}" r="{radius}" fill="{colors[variant_id]}" '
-            f'stroke="{outlines[variant_id]}" stroke-width="{1.5 if variant_id == "fs2" else 2}"/>'
-        )
+    def shown(task: dict[str, object], variant_id: str) -> float:
+        return round(float(task[variant_id]) * 100, 1)  # type: ignore[arg-type]
 
     parts = [
         brand.svg_open(
@@ -470,31 +465,40 @@ def build_family_by_task() -> None:
             30,
         ),
         brand_tag(1340, 46),
-    ]
-
-    legend_x = 68
-    for variant in variants:
-        variant_id = str(variant["id"])
-        parts.extend(
-            [
-                dot(legend_x, 134, variant_id, 7),
-                svg_text(legend_x + 16, 139, str(variant["name"]), size=15, color=BODY),
-            ]
-        )
-        legend_x += 175
-
-    parts.append(
+        f'<circle cx="68" cy="134" r="7.5" fill="{WHITE}" stroke="{BLUE}" stroke-width="2.5"/>',
+        svg_text(84, 139, "CARVE-ZS (zero-shot)", size=15, color=BODY),
+        f'<circle cx="270" cy="134" r="6.5" fill="{LIME}" stroke="{INK}" stroke-width="1.5"/>',
+        svg_text(286, 139, "CARVE-FS2 (two-shot)", size=15, color=BODY),
         svg_text(
-            1215,
+            490,
+            139,
+            "AS and FS1 appear in the table. Best result per row in bold.",
+            size=15,
+            color=MUTED,
+        ),
+        svg_text(
+            1220,
             top - 78,
-            "EXACT VALUES",
+            "FS2 VS ZS",
             size=12,
             color=MUTED,
             weight=700,
             anchor="middle",
             spacing=1.2,
-        )
-    )
+        ),
+        svg_text(
+            (value_columns["zs"] + value_columns["fs2"]) / 2,
+            top - 78,
+            "EXACT VALUES (%)",
+            size=12,
+            color=MUTED,
+            weight=700,
+            anchor="middle",
+            spacing=1.2,
+        ),
+        svg_text(1220, top - 46, "pts", size=13, color=INK, weight=700, anchor="middle"),
+    ]
+
     for variant in variants:
         variant_id = str(variant["id"])
         parts.append(
@@ -514,7 +518,7 @@ def build_family_by_task() -> None:
         parts.extend(
             [
                 f'<line x1="{x}" y1="{top - 36}" x2="{x}" '
-                f'y2="{top + len(tasks) * row_height - 15}" stroke="{LINE}" '
+                f'y2="{top + len(tasks) * row_height - 20}" stroke="{LINE}" '
                 'stroke-width="1" stroke-dasharray="3 5"/>',
                 svg_text(x, top - 46, f"{tick}%", size=13, color=MUTED, anchor="middle"),
             ]
@@ -522,46 +526,77 @@ def build_family_by_task() -> None:
 
     for index, task in enumerate(tasks):
         center_y = top + index * row_height
-        values = [float(task[str(variant["id"])]) for variant in variants]
-        low_x = accuracy_x(min(values))
-        high_x = accuracy_x(max(values))
+        values = {str(v["id"]): shown(task, str(v["id"])) for v in variants}
+        best = max(values.values())
+        zero_shot, two_shot = values["zs"], values["fs2"]
+        delta = round(two_shot - zero_shot, 1)
         if index % 2 == 0:
             parts.append(
                 f'<rect x="40" y="{center_y - 27}" width="1320" height="54" rx="12" '
                 f'fill="{PAPER}"/>'
             )
+        zs_x = accuracy_x(float(task["zs"]))
+        fs2_x = accuracy_x(float(task["fs2"]))
+        line_color = loss_ink if delta < 0 else (INK_DEEP if delta > 0 else HAZE)
+        parts.append(
+            svg_text(
+                plot_left - 24,
+                center_y + 5,
+                f"{task['name']} (n={task['n']})",
+                size=15,
+                color=INK,
+                weight=500,
+                anchor="end",
+            )
+        )
+        if delta:
+            parts.append(
+                f'<line x1="{zs_x}" y1="{center_y}" x2="{fs2_x}" y2="{center_y}" '
+                f'stroke="{line_color}" stroke-opacity="0.45" stroke-width="3" '
+                'stroke-linecap="round"/>'
+            )
         parts.extend(
             [
-                svg_text(
-                    left - 20,
-                    center_y + 5,
-                    f"{task['name']} (n={task['n']})",
-                    size=15,
-                    color=INK,
-                    weight=500,
-                    anchor="end",
-                ),
-                f'<line x1="{low_x}" y1="{center_y}" x2="{high_x}" y2="{center_y}" '
-                f'stroke="{HAZE}" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>',
+                f'<circle cx="{zs_x}" cy="{center_y}" r="8" fill="{WHITE}" stroke="{BLUE}" '
+                'stroke-width="2.5"/>',
+                f'<circle cx="{fs2_x}" cy="{center_y}" r="6" fill="{LIME}" stroke="{INK}" '
+                'stroke-width="1.5"/>',
             ]
         )
-        for variant in variants:
-            variant_id = str(variant["id"])
-            value = float(task[variant_id])
-            parts.extend(
-                [
-                    dot(accuracy_x(value), center_y + offsets[variant_id], variant_id, 6.5),
-                    svg_text(
-                        value_columns[variant_id],
-                        center_y + 5,
-                        f"{value * 100:.1f}",
-                        size=13,
-                        color=INK,
-                        weight=600,
-                        anchor="middle",
-                    ),
-                ]
+        for variant_id, value in values.items():
+            is_best = value == best
+            parts.append(
+                svg_text(
+                    value_columns[variant_id],
+                    center_y + 5,
+                    f"{value:.1f}",
+                    size=14,
+                    color=INK if is_best else MUTED,
+                    weight=700 if is_best else 400,
+                    anchor="middle",
+                )
             )
+        if delta > 0:
+            fill, ink, label = LIME, INK, f"+{delta:.1f}"
+        elif delta < 0:
+            fill, ink, label = loss_fill, loss_ink, f"\u2212{abs(delta):.1f}"
+        else:
+            fill, ink, label = TRACK, MUTED, "0.0"
+        parts.extend(
+            [
+                f'<rect x="{delta_column - 32}" y="{center_y - 12}" width="64" height="24" '
+                f'rx="12" fill="{fill}"/>',
+                svg_text(
+                    delta_column,
+                    center_y + 5,
+                    label,
+                    size=13.5,
+                    color=ink,
+                    weight=700,
+                    anchor="middle",
+                ),
+            ]
+        )
 
     footer_y = top + len(tasks) * row_height + 28
     overall = report["overall"]

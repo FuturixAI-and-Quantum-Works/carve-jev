@@ -1,160 +1,157 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1084" viewBox="0 0 1400 1084" role="img" aria-labelledby="title desc"><title id="title">CARVE family accuracy by task</title><desc id="desc">Per-task accuracy for CARVE zero-shot, adaptive, one-shot, and two-shot profiles.</desc><defs></defs>
-<rect x="0.5" y="0.5" width="1399" height="1083" rx="27.5" fill="#ffffff" stroke="#e5e7ea"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1038" viewBox="0 0 1400 1038" role="img" aria-labelledby="title desc"><title id="title">CARVE family accuracy by task</title><desc id="desc">Per-task accuracy for CARVE zero-shot, adaptive, one-shot, and two-shot profiles.</desc><defs></defs>
+<rect x="0.5" y="0.5" width="1399" height="1037" rx="27.5" fill="#ffffff" stroke="#e5e7ea"/>
 <text x="60" y="64" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="30" font-weight="700" text-anchor="start">Where CARVE gains from demonstrations—and where it does not</text>
 <text x="60" y="98" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="18" font-weight="400" text-anchor="start">Per-task accuracy across the open-source Jev-like CARVE model family</text>
 <g transform="translate(1228.8648587570622 45) scale(0.5650)" fill="#303030"><path d="M16.0469 16.8496V17.0252L21.3086 22.994H30.429V16.8496H16.0469Z"/><path d="M0 0.443359V9.74776L6.05104 16.6822L0 16.9455V23.0021H11.4882L22.2748 35.3788H29.9921L30.1675 35.1154L0 0.443359Z"/><path d="M1.22656 0L6.66373 6.23219L30.4294 6.49553V0.35111L1.22656 0Z"/></g><path transform="translate(1256.04 61) scale(0.2000)" d="M7.3 0V-70H50.9V-61.8H17.3V-39.1H45.4V-31.1H17.3V0ZM79.6 1.2Q73.6 1.2 69.3 -1.2Q64.9 -3.5 62.6 -8.4Q60.3 -13.3 60.3 -20.5V-50.4H70.3V-21.5Q70.3 -14.5 73.3 -10.9Q76.4 -7.3 82.2 -7.3Q86.1 -7.3 89.3 -9.2Q92.4 -11.1 94.3 -14.7Q96.1 -18.2 96.1 -23.4V-50.4H106.1V0H97.1L96.5 -8.6Q94.2 -4 89.8 -1.4Q85.3 1.2 79.6 1.2ZM140.5 0Q135.8 0 132.3 -1.5Q128.7 -3 126.9 -6.5Q125 -10 125 -16V-42H116.2V-50.4H125L126.2 -63.1H135V-50.4H149.1V-42H135V-15.9Q135 -11.6 136.7 -10.1Q138.5 -8.5 142.9 -8.5H148.7V0ZM178.8 1.2Q172.8 1.2 168.5 -1.2Q164.1 -3.5 161.8 -8.4Q159.5 -13.3 159.5 -20.5V-50.4H169.5V-21.5Q169.5 -14.5 172.5 -10.9Q175.6 -7.3 181.4 -7.3Q185.3 -7.3 188.5 -9.2Q191.6 -11.1 193.5 -14.7Q195.3 -18.2 195.3 -23.4V-50.4H205.3V0H196.3L195.7 -8.6Q193.4 -4 189 -1.4Q184.5 1.2 178.8 1.2ZM219 0V-50.4H228L228.8 -40.9Q230.5 -44.3 233.2 -46.6Q235.8 -49 239.5 -50.3Q243.3 -51.6 247.9 -51.6V-41.1H244.3Q241.2 -41.1 238.4 -40.3Q235.6 -39.5 233.5 -37.7Q231.3 -35.9 230.2 -32.8Q229 -29.7 229 -25.2V0ZM257.8 0V-50.4H267.8V0ZM262.8 -59.9Q260 -59.9 258.1 -61.7Q256.2 -63.5 256.2 -66.3Q256.2 -69 258.1 -70.8Q260 -72.5 262.8 -72.5Q265.6 -72.5 267.5 -70.8Q269.4 -69 269.4 -66.3Q269.4 -63.5 267.5 -61.7Q265.6 -59.9 262.8 -59.9ZM277.4 0 294.8 -25.2 277.4 -50.4H288.3L301.4 -30.9L314.7 -50.4H325.4L308 -25.2L325.4 0H314.7L301.4 -19.7L288.3 0ZM330.2 0 355.9 -70H366.8L392.4 0H381.8L361.3 -58L340.6 0ZM341.8 -17.3 344.6 -25.3H377.5L380.2 -17.3ZM402.5 0V-70H412.5V0Z" fill="#303030"/>
-<circle cx="68" cy="134" r="7" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="84" y="139" fill="#4d5461" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-ZS</text>
-<circle cx="243" cy="134" r="7" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="259" y="139" fill="#4d5461" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-AS</text>
-<circle cx="418" cy="134" r="7" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="434" y="139" fill="#4d5461" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-FS1</text>
-<circle cx="593" cy="134" r="7" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="609" y="139" fill="#4d5461" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-FS2</text>
-<text x="1215" y="160" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1.2">EXACT VALUES</text>
-<text x="1110" y="192" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">ZS</text>
-<text x="1180" y="192" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">AS</text>
-<text x="1250" y="192" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">FS1</text>
-<text x="1320" y="192" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">FS2</text>
-<line x1="310.0" y1="202" x2="310.0" y2="919" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
-<text x="310.0" y="192" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">50%</text>
-<line x1="456.0" y1="202" x2="456.0" y2="919" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
-<text x="456.0" y="192" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">60%</text>
-<line x1="602.0" y1="202" x2="602.0" y2="919" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
-<text x="602.0" y="192" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">70%</text>
-<line x1="748.0" y1="202" x2="748.0" y2="919" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
-<text x="748.0" y="192" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">80%</text>
-<line x1="894.0" y1="202" x2="894.0" y2="919" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
-<text x="894.0" y="192" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">90%</text>
-<line x1="1040.0" y1="202" x2="1040.0" y2="919" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
-<text x="1040.0" y="192" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">100%</text>
-<rect x="40" y="211" width="1320" height="54" rx="12" fill="#f8f8f8"/>
-<text x="290" y="243" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">SciQ (n=80)</text>
-<line x1="1021.7500000000001" y1="238" x2="1040.0" y2="238" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="1021.7500000000001" cy="223" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="243" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">98.8</text>
-<circle cx="1021.7500000000001" cy="233" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="243" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">98.8</text>
-<circle cx="1040.0" cy="243" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="243" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">100.0</text>
-<circle cx="1040.0" cy="253" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="243" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">100.0</text>
-<text x="290" y="301" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Authorization policy (n=40)</text>
-<line x1="1040.0" y1="296" x2="1040.0" y2="296" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="1040.0" cy="281" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="301" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">100.0</text>
-<circle cx="1040.0" cy="291" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="301" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">100.0</text>
-<circle cx="1040.0" cy="301" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="301" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">100.0</text>
-<circle cx="1040.0" cy="311" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="301" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">100.0</text>
-<rect x="40" y="327" width="1320" height="54" rx="12" fill="#f8f8f8"/>
-<text x="290" y="359" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Deadline policy (n=40)</text>
-<line x1="930.5000000000001" y1="354" x2="1003.5" y2="354" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="1003.5" cy="339" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="359" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">97.5</text>
-<circle cx="1003.5" cy="349" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="359" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">97.5</text>
-<circle cx="930.5000000000001" cy="359" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="359" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">92.5</text>
-<circle cx="966.9999999999999" cy="369" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="359" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">95.0</text>
-<text x="290" y="417" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">PAWS (n=80)</text>
-<line x1="930.5000000000001" y1="412" x2="948.75" y2="412" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="930.5000000000001" cy="397" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="417" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">92.5</text>
-<circle cx="948.75" cy="407" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="417" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">93.8</text>
-<circle cx="948.75" cy="417" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="417" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">93.8</text>
-<circle cx="948.75" cy="427" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="417" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">93.8</text>
-<rect x="40" y="443" width="1320" height="54" rx="12" fill="#f8f8f8"/>
-<text x="290" y="475" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">QNLI (n=80)</text>
-<line x1="912.25" y1="470" x2="930.5000000000001" y2="470" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="930.5000000000001" cy="455" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="475" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">92.5</text>
-<circle cx="912.25" cy="465" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="475" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">91.2</text>
-<circle cx="912.25" cy="475" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="475" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">91.2</text>
-<circle cx="912.25" cy="485" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="475" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">91.2</text>
-<text x="290" y="533" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Control policies (n=110)</text>
-<line x1="907.272727286" y1="528" x2="947.090909144" y2="528" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="920.545454572" cy="513" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="533" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">91.8</text>
-<circle cx="907.272727286" cy="523" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="533" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">90.9</text>
-<circle cx="907.272727286" cy="533" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="533" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">90.9</text>
-<circle cx="947.090909144" cy="543" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="533" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">93.6</text>
-<rect x="40" y="559" width="1320" height="54" rx="12" fill="#f8f8f8"/>
-<text x="290" y="591" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Composition logic (n=96)</text>
-<line x1="781.458333382" y1="586" x2="887.916666618" y2="586" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="781.458333382" cy="571" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="591" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">82.3</text>
-<circle cx="872.708333382" cy="581" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="591" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">88.5</text>
-<circle cx="872.708333382" cy="591" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="591" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">88.5</text>
-<circle cx="887.916666618" cy="601" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="591" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">89.6</text>
-<text x="290" y="649" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">MMLU (n=80)</text>
-<line x1="766.25" y1="644" x2="784.5" y2="644" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="766.25" cy="629" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="649" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">81.2</text>
-<circle cx="784.5" cy="639" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="649" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">82.5</text>
-<circle cx="766.25" cy="649" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="649" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">81.2</text>
-<circle cx="784.5" cy="659" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="649" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">82.5</text>
-<rect x="40" y="675" width="1320" height="54" rx="12" fill="#f8f8f8"/>
-<text x="290" y="707" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">TweetEval offensive (n=80)</text>
-<line x1="711.5" y1="702" x2="748.0" y2="702" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="748.0" cy="687" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="707" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">80.0</text>
-<circle cx="711.5" cy="697" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="707" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">77.5</text>
-<circle cx="711.5" cy="707" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="707" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">77.5</text>
-<circle cx="748.0" cy="717" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="707" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">80.0</text>
-<text x="290" y="765" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Buried evidence (n=80)</text>
-<line x1="456.0" y1="760" x2="638.5" y2="760" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="638.5" cy="745" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="765" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">72.5</text>
-<circle cx="529.0" cy="755" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="765" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">65.0</text>
-<circle cx="456.0" cy="765" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="765" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">60.0</text>
-<circle cx="529.0" cy="775" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="765" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">65.0</text>
-<rect x="40" y="791" width="1320" height="54" rx="12" fill="#f8f8f8"/>
-<text x="290" y="823" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Emotion (n=80)</text>
-<line x1="456.0" y1="818" x2="565.5" y2="818" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="456.0" cy="803" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="823" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">60.0</text>
-<circle cx="565.5" cy="813" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="823" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">67.5</text>
-<circle cx="492.5" cy="823" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="823" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">62.5</text>
-<circle cx="565.5" cy="833" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="823" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">67.5</text>
-<text x="290" y="881" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">MMLU-Pro (n=200)</text>
-<line x1="463.29999999999995" y1="876" x2="521.7" y2="876" stroke="#aabcca" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
-<circle cx="463.29999999999995" cy="861" r="6.5" fill="#82b3dd" stroke="#ffffff" stroke-width="2"/>
-<text x="1110" y="881" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">60.5</text>
-<circle cx="463.29999999999995" cy="871" r="6.5" fill="#4983b5" stroke="#ffffff" stroke-width="2"/>
-<text x="1180" y="881" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">60.5</text>
-<circle cx="507.1" cy="881" r="6.5" fill="#263738" stroke="#ffffff" stroke-width="2"/>
-<text x="1250" y="881" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">63.5</text>
-<circle cx="521.7" cy="891" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
-<text x="1320" y="881" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">64.5</text>
-<line x1="60" y1="944" x2="1340" y2="944" stroke="#e5e7ea" stroke-width="1"/>
-<text x="60" y="972" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" text-anchor="start">Overall: ZS 80.50% · AS 80.88% · FS1 80.50% · FS2 82.22%</text>
-<text x="60" y="1002" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="start">Jev aggregate reference: 87.19% published. No Jev per-task values were available in the cited source, so none are inferred.</text>
+<circle cx="68" cy="134" r="7.5" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<text x="84" y="139" fill="#4d5461" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-ZS (zero-shot)</text>
+<circle cx="270" cy="134" r="6.5" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="286" y="139" fill="#4d5461" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400" text-anchor="start">CARVE-FS2 (two-shot)</text>
+<text x="490" y="139" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400" text-anchor="start">AS and FS1 appear in the table. Best result per row in bold.</text>
+<text x="1220" y="162" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1.2">FS2 VS ZS</text>
+<text x="975.0" y="162" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1.2">EXACT VALUES (%)</text>
+<text x="1220" y="194" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">pts</text>
+<text x="870" y="194" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">ZS</text>
+<text x="940" y="194" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">AS</text>
+<text x="1010" y="194" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">FS1</text>
+<text x="1080" y="194" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">FS2</text>
+<line x1="340.0" y1="204" x2="340.0" y2="868" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="340.0" y="194" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">50%</text>
+<line x1="432.0" y1="204" x2="432.0" y2="868" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="432.0" y="194" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">60%</text>
+<line x1="524.0" y1="204" x2="524.0" y2="868" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="524.0" y="194" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">70%</text>
+<line x1="616.0" y1="204" x2="616.0" y2="868" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="616.0" y="194" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">80%</text>
+<line x1="708.0" y1="204" x2="708.0" y2="868" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="708.0" y="194" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">90%</text>
+<line x1="800.0" y1="204" x2="800.0" y2="868" stroke="#e5e7ea" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="800.0" y="194" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" text-anchor="middle">100%</text>
+<rect x="40" y="213" width="1320" height="54" rx="12" fill="#f8f8f8"/>
+<text x="316" y="245" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">SciQ (n=80)</text>
+<line x1="788.5" y1="240" x2="800.0" y2="240" stroke="#263738" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="788.5" cy="240" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="800.0" cy="240" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="245" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">98.8</text>
+<text x="940" y="245" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">98.8</text>
+<text x="1010" y="245" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">100.0</text>
+<text x="1080" y="245" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">100.0</text>
+<rect x="1188" y="228" width="64" height="24" rx="12" fill="#d3f072"/>
+<text x="1220" y="245" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">+1.2</text>
+<text x="316" y="299" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Authorization policy (n=40)</text>
+<circle cx="800.0" cy="294" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="800.0" cy="294" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="299" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">100.0</text>
+<text x="940" y="299" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">100.0</text>
+<text x="1010" y="299" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">100.0</text>
+<text x="1080" y="299" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">100.0</text>
+<rect x="1188" y="282" width="64" height="24" rx="12" fill="#eef1f3"/>
+<text x="1220" y="299" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">0.0</text>
+<rect x="40" y="321" width="1320" height="54" rx="12" fill="#f8f8f8"/>
+<text x="316" y="353" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Deadline policy (n=40)</text>
+<line x1="777.0" y1="348" x2="754.0" y2="348" stroke="#a4402b" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="777.0" cy="348" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="754.0" cy="348" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="353" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">97.5</text>
+<text x="940" y="353" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">97.5</text>
+<text x="1010" y="353" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">92.5</text>
+<text x="1080" y="353" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">95.0</text>
+<rect x="1188" y="336" width="64" height="24" rx="12" fill="#f6ddd6"/>
+<text x="1220" y="353" fill="#a4402b" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">−2.5</text>
+<text x="316" y="407" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">PAWS (n=80)</text>
+<line x1="731.0" y1="402" x2="742.5" y2="402" stroke="#263738" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="731.0" cy="402" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="742.5" cy="402" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="407" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">92.5</text>
+<text x="940" y="407" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">93.8</text>
+<text x="1010" y="407" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">93.8</text>
+<text x="1080" y="407" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">93.8</text>
+<rect x="1188" y="390" width="64" height="24" rx="12" fill="#d3f072"/>
+<text x="1220" y="407" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">+1.3</text>
+<rect x="40" y="429" width="1320" height="54" rx="12" fill="#f8f8f8"/>
+<text x="316" y="461" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">QNLI (n=80)</text>
+<line x1="731.0" y1="456" x2="719.5" y2="456" stroke="#a4402b" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="731.0" cy="456" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="719.5" cy="456" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="461" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">92.5</text>
+<text x="940" y="461" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">91.2</text>
+<text x="1010" y="461" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">91.2</text>
+<text x="1080" y="461" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">91.2</text>
+<rect x="1188" y="444" width="64" height="24" rx="12" fill="#f6ddd6"/>
+<text x="1220" y="461" fill="#a4402b" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">−1.3</text>
+<text x="316" y="515" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Control policies (n=110)</text>
+<line x1="724.727272744" y1="510" x2="741.4545454879999" y2="510" stroke="#263738" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="724.727272744" cy="510" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="741.4545454879999" cy="510" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="515" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">91.8</text>
+<text x="940" y="515" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">90.9</text>
+<text x="1010" y="515" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">90.9</text>
+<text x="1080" y="515" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">93.6</text>
+<rect x="1188" y="498" width="64" height="24" rx="12" fill="#d3f072"/>
+<text x="1220" y="515" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">+1.8</text>
+<rect x="40" y="537" width="1320" height="54" rx="12" fill="#f8f8f8"/>
+<text x="316" y="569" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Composition logic (n=96)</text>
+<line x1="637.0833333639999" y1="564" x2="704.1666666360001" y2="564" stroke="#263738" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="637.0833333639999" cy="564" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="704.1666666360001" cy="564" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="569" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">82.3</text>
+<text x="940" y="569" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">88.5</text>
+<text x="1010" y="569" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">88.5</text>
+<text x="1080" y="569" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">89.6</text>
+<rect x="1188" y="552" width="64" height="24" rx="12" fill="#d3f072"/>
+<text x="1220" y="569" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">+7.3</text>
+<text x="316" y="623" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">MMLU (n=80)</text>
+<line x1="627.5" y1="618" x2="639.0" y2="618" stroke="#263738" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="627.5" cy="618" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="639.0" cy="618" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="623" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">81.2</text>
+<text x="940" y="623" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">82.5</text>
+<text x="1010" y="623" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">81.2</text>
+<text x="1080" y="623" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">82.5</text>
+<rect x="1188" y="606" width="64" height="24" rx="12" fill="#d3f072"/>
+<text x="1220" y="623" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">+1.3</text>
+<rect x="40" y="645" width="1320" height="54" rx="12" fill="#f8f8f8"/>
+<text x="316" y="677" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">TweetEval offensive (n=80)</text>
+<circle cx="616.0" cy="672" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="616.0" cy="672" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="677" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">80.0</text>
+<text x="940" y="677" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">77.5</text>
+<text x="1010" y="677" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">77.5</text>
+<text x="1080" y="677" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">80.0</text>
+<rect x="1188" y="660" width="64" height="24" rx="12" fill="#eef1f3"/>
+<text x="1220" y="677" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">0.0</text>
+<text x="316" y="731" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Buried evidence (n=80)</text>
+<line x1="547.0" y1="726" x2="478.0" y2="726" stroke="#a4402b" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="547.0" cy="726" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="478.0" cy="726" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="731" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">72.5</text>
+<text x="940" y="731" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">65.0</text>
+<text x="1010" y="731" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">60.0</text>
+<text x="1080" y="731" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">65.0</text>
+<rect x="1188" y="714" width="64" height="24" rx="12" fill="#f6ddd6"/>
+<text x="1220" y="731" fill="#a4402b" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">−7.5</text>
+<rect x="40" y="753" width="1320" height="54" rx="12" fill="#f8f8f8"/>
+<text x="316" y="785" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">Emotion (n=80)</text>
+<line x1="432.0" y1="780" x2="501.0" y2="780" stroke="#263738" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="432.0" cy="780" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="501.0" cy="780" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="785" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">60.0</text>
+<text x="940" y="785" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">67.5</text>
+<text x="1010" y="785" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">62.5</text>
+<text x="1080" y="785" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">67.5</text>
+<rect x="1188" y="768" width="64" height="24" rx="12" fill="#d3f072"/>
+<text x="1220" y="785" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">+7.5</text>
+<text x="316" y="839" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" text-anchor="end">MMLU-Pro (n=200)</text>
+<line x1="436.59999999999997" y1="834" x2="473.4" y2="834" stroke="#263738" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="436.59999999999997" cy="834" r="8" fill="#ffffff" stroke="#4983b5" stroke-width="2.5"/>
+<circle cx="473.4" cy="834" r="6" fill="#d3f072" stroke="#303030" stroke-width="1.5"/>
+<text x="870" y="839" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">60.5</text>
+<text x="940" y="839" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">60.5</text>
+<text x="1010" y="839" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="middle">63.5</text>
+<text x="1080" y="839" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle">64.5</text>
+<rect x="1188" y="822" width="64" height="24" rx="12" fill="#d3f072"/>
+<text x="1220" y="839" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">+4.0</text>
+<line x1="60" y1="898" x2="1340" y2="898" stroke="#e5e7ea" stroke-width="1"/>
+<text x="60" y="926" fill="#303030" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" text-anchor="start">Overall: ZS 80.50% · AS 80.88% · FS1 80.50% · FS2 82.22%</text>
+<text x="60" y="956" fill="#8d8d8d" font-family="'DM Sans', 'Hanken Grotesk', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" text-anchor="start">Jev aggregate reference: 87.19% published. No Jev per-task values were available in the cited source, so none are inferred.</text>
 </svg>
