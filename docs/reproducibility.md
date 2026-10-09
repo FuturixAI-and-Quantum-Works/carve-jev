@@ -62,10 +62,10 @@ Machine-readable files in `artifacts/` are sanitized summaries from the source
 workspace. Datasets, generated prediction JSONL, model weights, caches, and
 virtual environments are intentionally excluded.
 
-## README comparison figures
+## README figures and brand assets
 
-The model-comparison and CARVE-family figures are generated from committed
-JSON rather than hand-edited:
+The banner, logos, social preview, model-comparison figure, and CARVE-family
+figure are generated rather than hand-edited. The two charts read committed JSON:
 
 ```bash
 python scripts/build_readme_assets.py

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/carve-banner.svg" alt="CARVE — Candidate-Aligned Readout via Vocabulary Evidence" width="100%" />
+  <img src="assets/carve-banner.svg" alt="CARVE by FuturixAI — Candidate-Aligned Readout via Vocabulary Evidence" width="100%" />
 </p>
 
 <p align="center">
