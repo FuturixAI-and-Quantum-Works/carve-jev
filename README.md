@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/carve-banner.png" alt="Carve-Jev by FuturixAI — Open-source Jev-like structured inference with Qwen 3.8 and vLLM" width="100%" />
+  <img src="assets/carve-jev-banner-v2.png" alt="Carve-Jev by FuturixAI — Open-source Jev-like structured inference with Qwen 3.8 and vLLM" width="100%" />
 </p>
 
 <p align="center">
